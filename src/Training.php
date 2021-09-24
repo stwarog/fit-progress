@@ -8,9 +8,10 @@ final class Training
 {
     /**
      * @param TrainingId $id
+     * @param Date $date
      * @param Plan<Exercise> $exercises
      */
-    public function __construct(private TrainingId $id, private Plan $exercises)
+    public function __construct(private TrainingId $id, Date $date, private Plan $exercises)
     {
     }
 }

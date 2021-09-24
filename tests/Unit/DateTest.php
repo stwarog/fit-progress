@@ -1,0 +1,38 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Unit;
+
+use App\Date;
+use Generator;
+use InvalidArgumentException;
+use PHPUnit\Framework\TestCase;
+
+/** @covers \App\Date */
+final class DateTest extends TestCase
+{
+    public function testConstructor(): void
+    {
+        $sut = new Date('2021-01-01');
+        $this->assertInstanceOf(Date::class, $sut);
+    }
+
+    /** @dataProvider provideConstructorInvalidFormat */
+    public function testConstructorInvalidFormat(string $wrongFormat): void
+    {
+        // Expect
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid date format, only YYYY-mm-dd supported');
+
+        // When invalid date provided as argument
+        $sut = new Date($wrongFormat);
+    }
+
+    public function provideConstructorInvalidFormat(): Generator
+    {
+        yield 'dd-mm-YYYY' => ['01-01-2021'];
+        yield 'dd-mm-YYYY-random' => ['01-01-2021-random'];
+        yield 'dd-mm-YY' => ['01-01-20'];
+    }
+}

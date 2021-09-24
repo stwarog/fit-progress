@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Unit;
 
+use App\Date;
 use App\Exercise;
 use App\Plan;
 use App\Training;
@@ -17,6 +18,7 @@ final class TrainingTest extends TestCase
     {
         $sut = new Training(
             new TrainingId('value'),
+            new Date('2021-09-01'),
             new Plan([new Exercise()])
         );
         $this->assertInstanceOf(Training::class, $sut);
