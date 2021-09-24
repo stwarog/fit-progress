@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  tests:
+    container_name: fitter_tests
+    image: composer:latest
+    environment:
+      - COMPOSER_CACHE_DIR=/app/.cache/composer
+    volumes:
+      - .:/app
