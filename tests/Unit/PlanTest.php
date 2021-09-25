@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Unit;
 
 use App\Exercise;
+use App\Id;
+use App\Name;
 use App\Plan;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
@@ -14,7 +16,7 @@ final class PlanTest extends TestCase
 {
     public function testConstructor(): void
     {
-        $sut = new Plan([new Exercise()]);
+        $sut = new Plan([new Exercise(new Id('id'), new Name('name'))]);
         $this->assertInstanceOf(Plan::class, $sut);
     }
 
