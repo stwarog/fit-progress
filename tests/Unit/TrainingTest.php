@@ -21,7 +21,7 @@ final class TrainingTest extends TestCase
         $sut = new Training(
             new TrainingId('value'),
             new Date('2021-09-01'),
-            new Plan([new Exercise(new Id('id'), new Name('name'))])
+            new Plan(new Name('FBW'), [new Exercise(new Id('id'), new Name('name'))])
         );
         $this->assertInstanceOf(Training::class, $sut);
     }
