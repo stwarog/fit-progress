@@ -8,7 +8,7 @@ use App\Domain\Name;
 
 final class Exercise
 {
-    public function __construct(ExerciseId $id, Name $name)
+    public function __construct(private ExerciseId $id, private Name $name)
     {
     }
 }
