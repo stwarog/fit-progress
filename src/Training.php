@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Catalog\ExerciseId;
 use App\Exceptions\NotFoundException;
 use App\Repository\ExerciseById;
 

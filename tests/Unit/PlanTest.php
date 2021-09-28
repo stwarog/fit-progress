@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Unit;
 
-use App\Exercise;
-use App\ExerciseId;
+use App\Catalog\Exercise;
+use App\Catalog\ExerciseId;
 use App\Name;
 use App\Plan;
 use App\PlanId;

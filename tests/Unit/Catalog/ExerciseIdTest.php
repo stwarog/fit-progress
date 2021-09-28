@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Unit;
+namespace Unit\Catalog;
 
-use App\ExerciseId;
+use App\Catalog\ExerciseId;
 use App\Shared\AbstractId;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \App\ExerciseId */
+/** @covers \App\Catalog\ExerciseId */
 final class ExerciseIdTest extends TestCase
 {
     public function testConstructor(): ExerciseId

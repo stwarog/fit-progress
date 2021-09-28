@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Unit;
 
+use App\Catalog\ExerciseId;
 use App\Date;
 use App\Exceptions\NotFoundException;
-use App\ExerciseId;
 use App\PlanId;
 use App\Repeats;
 use App\Repository\ExerciseById;

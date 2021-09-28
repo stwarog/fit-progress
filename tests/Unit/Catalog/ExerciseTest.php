@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Unit;
+namespace Unit\Catalog;
 
-use App\Exercise;
-use App\ExerciseId;
+use App\Catalog\Exercise;
+use App\Catalog\ExerciseId;
 use App\Name;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \App\Exercise */
+/** @covers \App\Catalog\Exercise */
 final class ExerciseTest extends TestCase
 {
     public function testConstructor(): void

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Catalog\Exercise;
 use InvalidArgumentException;
 
 final class Plan
