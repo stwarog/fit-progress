@@ -17,4 +17,9 @@ final class Weight
             throw new OutOfBoundsException('Weight value must be in range [5-300]');
         }
     }
+
+    public function getValue(): float
+    {
+        return $this->value;
+    }
 }

@@ -14,4 +14,9 @@ final class Repeats
             throw new OutOfBoundsException('Repeats value must be in range [1-100]');
         }
     }
+
+    public function getValue(): int
+    {
+        return $this->value;
+    }
 }

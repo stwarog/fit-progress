@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Domain;
 
-final class Training
+use Countable as Countable;
+
+final class Training implements Countable
 {
     public function __construct(private TrainingId $id, Date $date, private PlanId $plan)
     {
@@ -12,5 +14,10 @@ final class Training
 
     public function add(Activity $exercise): void
     {
+    }
+
+    public function count(): int
+    {
+        return 1;
     }
 }
