@@ -30,3 +30,5 @@ make tests_unit:
 
 dump:
 	docker-compose run --rm tests dump-autoload
+
+check: phpcs deptrac tests_unit
