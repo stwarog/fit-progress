@@ -8,7 +8,7 @@ use InvalidArgumentException;
 
 final class Plan
 {
-    public function __construct(private Name $name, private array $exercises)
+    public function __construct(private PlanId $id, private Name $name, private array $exercises)
     {
         if (empty($this->exercises)) {
             throw new InvalidArgumentException('Missing exercises in plan');

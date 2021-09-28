@@ -6,7 +6,7 @@ namespace App;
 
 use App\Shared\AbstractId;
 
-final class Id extends AbstractId
+final class PlanId extends AbstractId
 {
 
 }

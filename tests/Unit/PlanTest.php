@@ -8,6 +8,7 @@ use App\Exercise;
 use App\Id;
 use App\Name;
 use App\Plan;
+use App\PlanId;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
@@ -16,7 +17,7 @@ final class PlanTest extends TestCase
 {
     public function testConstructor(): void
     {
-        $sut = new Plan(new Name('FBW'), [new Exercise(new Id('id'), new Name('name'))]);
+        $sut = new Plan(PlanId::random(), new Name('FBW'), [new Exercise(new Id('id'), new Name('name'))]);
         $this->assertInstanceOf(Plan::class, $sut);
     }
 
@@ -27,7 +28,7 @@ final class PlanTest extends TestCase
         $this->expectExceptionMessage('Missing exercises in plan');
 
         // When given plan without any exercises
-        new Plan(new Name('FBW'), []);
+        new Plan(PlanId::random(), new Name('FBW'), []);
     }
 
     public function testConstructorNoExerciseGivenThrowsError(): void
@@ -37,6 +38,6 @@ final class PlanTest extends TestCase
         $this->expectExceptionMessage('Plan accepts only Exercises, Unit\PlanTest given');
 
         // When given plan with class different from Exercise
-        new Plan(new Name('FBW'), [$this]);
+        new Plan(PlanId::random(), new Name('FBW'), [$this]);
     }
 }
