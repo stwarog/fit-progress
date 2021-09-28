@@ -8,6 +8,8 @@ use Countable as Countable;
 
 final class Training implements Countable
 {
+    private array $activities = [];
+
     public function __construct(private TrainingId $id, Date $date, private PlanId $plan)
     {
     }
