@@ -23,4 +23,9 @@ final class Training implements Countable
     {
         return count($this->activities);
     }
+
+    public function getId(): TrainingId
+    {
+        return $this->id;
+    }
 }

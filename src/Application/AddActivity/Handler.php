@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Application\AddActivity;
 
+use App\Application\CommandHandler;
 use App\Domain\Activity;
 use App\Domain\ActivityId;
 use App\Domain\Exceptions\NotFoundException;
@@ -11,7 +12,7 @@ use App\Domain\Repository\ExerciseById;
 use App\Domain\Repository\StoreTraining;
 use App\Domain\Repository\TrainingById;
 
-final class Handler
+final class Handler implements CommandHandler
 {
     public function __construct(
         private TrainingById $repo,
