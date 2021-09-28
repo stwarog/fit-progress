@@ -14,10 +14,11 @@ final class Training implements Countable
 
     public function add(Activity $exercise): void
     {
+        $this->activities[] = $exercise;
     }
 
     public function count(): int
     {
-        return 1;
+        return count($this->activities);
     }
 }
