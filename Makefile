@@ -25,3 +25,6 @@ phpcs_fix:
 
 make tests_unit:
 	docker-compose run --rm tests unit
+
+dump:
+	docker-compose run --rm tests dump-autoload
