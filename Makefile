@@ -22,6 +22,8 @@ phpcs:
 	composer phpcs
 phpcs_fix:
 	composer phpcs:fix
+deptrac:
+	composer deptrac
 
 make tests_unit:
 	docker-compose run --rm tests unit
