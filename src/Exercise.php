@@ -6,7 +6,7 @@ namespace App;
 
 final class Exercise
 {
-    public function __construct(Id $id, Name $name)
+    public function __construct(ExerciseId $id, Name $name)
     {
     }
 }

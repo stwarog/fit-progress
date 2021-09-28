@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Unit;
 
 use App\Exercise;
-use App\Id;
+use App\ExerciseId;
 use App\Name;
 use App\Plan;
 use App\PlanId;
@@ -17,7 +17,7 @@ final class PlanTest extends TestCase
 {
     public function testConstructor(): void
     {
-        $sut = new Plan(PlanId::random(), new Name('FBW'), [new Exercise(new Id('id'), new Name('name'))]);
+        $sut = new Plan(PlanId::random(), new Name('FBW'), [new Exercise(ExerciseId::random(), new Name('name'))]);
         $this->assertInstanceOf(Plan::class, $sut);
     }
 

@@ -6,12 +6,12 @@ namespace App;
 
 final class Training
 {
-    /**
-     * @param TrainingId $id
-     * @param Date $date
-     * @param Plan<Exercise> $plan
-     */
-    public function __construct(private TrainingId $id, Date $date, private Plan $plan)
+    public function __construct(private TrainingId $id, Date $date, private PlanId $plan)
     {
+    }
+
+    public function add(Weight $weight, Repeats $repeats): void
+    {
+
     }
 }
