@@ -10,8 +10,23 @@ final class Training implements Countable
 {
     private array $activities = [];
 
-    public function __construct(private TrainingId $id, Date $date, private PlanId $plan)
+    public function __construct(
+        private TrainingId $id,
+        private Name $name,
+        private ?Date $date = null,
+        private ?PlanId $plan = null
+    ) {
+        $this->date = $date ?? Date::now();
+    }
+
+    public static function create(Name $name, ?Date $date = null, ?PlanId $planId = null): self
     {
+        return new self(
+            TrainingId::random(),
+            $name,
+            $date,
+            $planId
+        );
     }
 
     public function add(Activity $exercise): void

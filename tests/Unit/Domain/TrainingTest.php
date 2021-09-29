@@ -26,6 +26,7 @@ final class TrainingTest extends TestCase
     {
         $sut = new Training(
             new TrainingId('value'),
+            new Name('some name'),
             new Date('2021-09-01'),
             PlanId::random()
         );
@@ -54,5 +55,11 @@ final class TrainingTest extends TestCase
 
         // Then count should be increased
         $this->assertCount(1, $sut);
+    }
+
+    public function testCreate(): void
+    {
+        $sut = Training::create(new Name('Some training'));
+        $this->assertInstanceOf(Training::class, $sut);
     }
 }

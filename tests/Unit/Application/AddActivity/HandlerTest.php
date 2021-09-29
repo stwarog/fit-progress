@@ -8,15 +8,12 @@ use App\Application\AddActivity\Command;
 use App\Application\AddActivity\Handler;
 use App\Domain\Catalog\Exercise;
 use App\Domain\Catalog\ExerciseId;
-use App\Domain\Date;
 use App\Domain\Exceptions\NotFoundException;
 use App\Domain\Name;
-use App\Domain\PlanId;
 use App\Domain\Repository\ExerciseById;
 use App\Domain\Repository\StoreTraining;
 use App\Domain\Repository\TrainingById;
 use App\Domain\Training;
-use App\Domain\TrainingId;
 use PHPUnit\Framework\TestCase;
 
 /** @covers \App\Application\AddActivity\Handler */
@@ -28,7 +25,7 @@ final class HandlerTest extends TestCase
         $command = new Command('training-id', 20.0, 10, 'exc-id');
 
         // And existing Training
-        $training = new Training(TrainingId::random(), Date::now(), PlanId::random());
+        $training = Training::create(new Name('Some training'));
         $repo = $this->createMock(TrainingById::class);
         $repo->method('findOne')->willReturn($training);
         $exists = $this->createMock(ExerciseById::class);
