@@ -11,6 +11,7 @@ use App\Domain\Catalog\ExerciseId;
 use App\Domain\Exceptions\NotFoundException;
 use App\Domain\Name;
 use App\Domain\Repository\ExerciseById;
+use App\Domain\Repository\PlanById;
 use App\Domain\Repository\StoreTraining;
 use App\Domain\Repository\TrainingById;
 use App\Domain\Training;
@@ -25,7 +26,7 @@ final class HandlerTest extends TestCase
         $command = new Command('training-id', 20.0, 10, 'exc-id');
 
         // And existing Training
-        $training = Training::create(new Name('Some training'));
+        $training = Training::create(new Name('Some training'), $this->createMock(PlanById::class));
         $repo = $this->createMock(TrainingById::class);
         $repo->method('findOne')->willReturn($training);
         $exists = $this->createMock(ExerciseById::class);

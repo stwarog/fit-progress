@@ -9,10 +9,13 @@ use App\Domain\ActivityId;
 use App\Domain\Catalog\Exercise;
 use App\Domain\Catalog\ExerciseId;
 use App\Domain\Date;
+use App\Domain\Exceptions\NotFoundException;
 use App\Domain\Name;
+use App\Domain\Plan;
 use App\Domain\PlanId;
 use App\Domain\Repeats;
 use App\Domain\Repository\ExerciseById;
+use App\Domain\Repository\PlanById;
 use App\Domain\Training;
 use App\Domain\TrainingId;
 use App\Domain\Weight;
@@ -27,8 +30,8 @@ final class TrainingTest extends TestCase
         $sut = new Training(
             new TrainingId('value'),
             new Name('some name'),
-            new Date('2021-09-01'),
-            PlanId::random()
+            $this->createMock(PlanById::class),
+            new Date('2021-09-01')
         );
         $this->assertInstanceOf(Training::class, $sut);
         $this->assertInstanceOf(Countable::class, $sut);
@@ -59,7 +62,52 @@ final class TrainingTest extends TestCase
 
     public function testCreate(): void
     {
-        $sut = Training::create(new Name('Some training'));
+        $sut = Training::create(new Name('Some training'), $this->createMock(PlanById::class));
         $this->assertInstanceOf(Training::class, $sut);
+    }
+
+    public function testCreatePlanIdProvidedExistsShouldBeVerified(): void
+    {
+        // Given plan
+        $planId = PlanId::random();
+        $exists = $this->createMock(PlanById::class);
+        $exists->expects($this->once())->method('findOne')
+            ->willReturn(
+                new Plan(
+                    PlanId::random(),
+                    new Name('name'),
+                    [new Exercise(ExerciseId::random(), new Name('name'))]
+                )
+            );
+
+        // When new training created
+        $sut = Training::create(
+            new Name('Some training'),
+            $exists,
+            Date::now(),
+            $planId
+        );
+
+        // Then
+        $this->assertInstanceOf(Training::class, $sut);
+    }
+
+    public function testCreatePlanIdProvidedExistsShouldBeVerifiedFails(): void
+    {
+        // Expects
+        $this->expectException(NotFoundException::class);
+        $this->expectExceptionMessage('Plan not found');
+
+        // Given not existing plan
+        $planId = PlanId::random();
+        $exists = $this->createMock(PlanById::class);
+
+        // When new training created with plan id provided
+        $sut = Training::create(
+            new Name('Some training'),
+            $exists,
+            Date::now(),
+            $planId
+        );
     }
 }
