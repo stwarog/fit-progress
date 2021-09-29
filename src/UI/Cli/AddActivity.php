@@ -7,13 +7,23 @@ namespace App\UI\Cli;
 use App\Application\AddActivity\Command as AddActivityCommand;
 use App\Application\CommandBus;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-final class TrainingCommand extends Command
+final class AddActivity extends Command
 {
     protected static $defaultName = 'app:activity:create';
     protected static $defaultDescription = 'Creates new activity';
+
+    protected function configure()
+    {
+        $this->addArgument('training', InputArgument::REQUIRED);
+        $this->addArgument('weight', InputArgument::REQUIRED);
+        $this->addArgument('repeats', InputArgument::REQUIRED);
+        $this->addArgument('exercise', InputArgument::REQUIRED);
+        parent::configure();
+    }
 
     public function __construct(private CommandBus $bus)
     {
@@ -23,10 +33,10 @@ final class TrainingCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $command = new AddActivityCommand(
-            '4ef022ee-bd51-405e-b1a6-e23139a3e9d3',
-            200,
-            5,
-            'fe28fe0f-3fe7-4bcf-8a14-ddd2bd60822d'
+            $input->getArgument('training'),
+            (float)$input->getArgument('weight'),
+            (int)$input->getArgument('repeats'),
+            $input->getArgument('exercise'),
         );
 
         $this->bus->handle($command);
