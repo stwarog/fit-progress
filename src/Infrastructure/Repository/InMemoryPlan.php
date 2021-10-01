@@ -6,27 +6,24 @@ namespace App\Infrastructure\Repository;
 
 use App\Domain\Date;
 use App\Domain\Name;
+use App\Domain\Plan;
 use App\Domain\PlanId;
 use App\Domain\Repository\PlanById;
-use App\Domain\Repository\StoreTraining;
-use App\Domain\Repository\TrainingById;
-use App\Domain\Training;
 use App\Domain\TrainingId;
 
-final class InMemoryTraining implements TrainingById, StoreTraining
+final class InMemoryPlan implements PlanById
 {
     private array $catalog = [];
 
     public function __construct(private PlanById $exists)
     {
         $names = [
-            ['4ef022ee-bd51-405e-b1a6-e23139a3e9d3', 'FBW'],
-            ['fe28fe0f-3fe7-4bcf-8a14-ddd2bd60822d', 'Interval'],
+            ['4ef022ee-bd51-405e-b1a6-1234123', 'FBW'],
         ];
 
         foreach ($names as $dataSet) {
             [$id, $name] = $dataSet;
-            $this->catalog[$id] = new Training(
+            $this->catalog[$id] = new Plan(
                 new TrainingId($id),
                 new Name($name),
                 $this->exists,
@@ -36,13 +33,8 @@ final class InMemoryTraining implements TrainingById, StoreTraining
         }
     }
 
-    public function findOne(TrainingId $id): ?Training
+    public function findOne(PlanId $id): ?Plan
     {
         return $this->catalog[(string)$id] ?? null;
-    }
-
-    public function store(Training $training): void
-    {
-        $this->catalog[(string)$training->getId()] = $training;
     }
 }
