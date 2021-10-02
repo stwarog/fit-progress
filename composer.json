@@ -24,6 +24,9 @@
         "symfony/yaml": "5.3.*"
     },
     "require-dev": {
+        "friends-of-behat/mink-browserkit-driver": "^1.5",
+        "friends-of-behat/mink-extension": "^2.5",
+        "friends-of-behat/symfony-extension": "^2.2",
         "phpunit/phpunit": "^9.5",
         "qossmic/deptrac-shim": "^0.15.2",
         "squizlabs/php_codesniffer": "^3.6",
