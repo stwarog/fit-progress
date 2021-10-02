@@ -4,7 +4,7 @@ namespace App\Domain\Repository;
 
 use App\Domain\Training;
 
-interface StoreTraining
+interface TrainingStore
 {
     public function store(Training $training): void;
 }

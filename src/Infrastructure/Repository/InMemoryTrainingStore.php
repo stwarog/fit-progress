@@ -8,12 +8,11 @@ use App\Domain\Date;
 use App\Domain\Name;
 use App\Domain\PlanId;
 use App\Domain\Repository\PlanById;
-use App\Domain\Repository\StoreTraining;
 use App\Domain\Repository\TrainingById;
 use App\Domain\Training;
 use App\Domain\TrainingId;
 
-final class InMemoryTraining implements TrainingById, StoreTraining
+final class InMemoryTrainingStore implements TrainingById
 {
     private array $catalog = [];
 

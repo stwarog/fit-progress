@@ -32,3 +32,9 @@ dump:
 	docker-compose run --rm tests dump-autoload
 
 check: phpcs deptrac tests_unit
+
+schema:
+	php bin/console doctrine:schema:update --force
+reset:
+	php bin/console doctrine:database:create
+	php bin/console doctrine:schema:update --force

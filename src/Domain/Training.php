@@ -31,8 +31,8 @@ final class Training implements Countable
         }
         $this->id = (string)$id;
         $this->name = (string)$name;
-        $this->date = (string)$date ?? (string)Date::now();
-        $this->planId = (string)$planId ?? $planId;
+        $this->date = $date ? (string)$date : (string)Date::now();
+        $this->planId = $planId ? (string)$planId : $planId;
     }
 
     public static function create(Name $name, PlanById $exists, ?Date $date = null, ?PlanId $planId = null): self

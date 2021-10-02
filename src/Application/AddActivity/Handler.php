@@ -9,14 +9,14 @@ use App\Domain\Activity;
 use App\Domain\ActivityId;
 use App\Domain\Exceptions\NotFoundException;
 use App\Domain\Repository\ExerciseById;
-use App\Domain\Repository\StoreTraining;
 use App\Domain\Repository\TrainingById;
+use App\Domain\Repository\TrainingStore;
 
 final class Handler implements CommandHandler
 {
     public function __construct(
         private TrainingById $repo,
-        private StoreTraining $training,
+        private TrainingStore $training,
         private ExerciseById $exists
     ) {
     }

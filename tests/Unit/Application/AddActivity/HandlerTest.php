@@ -6,16 +6,14 @@ namespace Unit\Application\AddActivity;
 
 use App\Application\AddActivity\Command;
 use App\Application\AddActivity\Handler;
-use App\Domain\Catalog\Exercise;
-use App\Domain\Catalog\ExerciseId;
 use App\Domain\Exceptions\NotFoundException;
 use App\Domain\Name;
 use App\Domain\Repository\ExerciseById;
 use App\Domain\Repository\PlanById;
-use App\Domain\Repository\StoreTraining;
 use App\Domain\Repository\TrainingById;
+use App\Domain\Repository\TrainingStore;
 use App\Domain\Training;
-use PHPUnit\Framework\TestCase;
+use Unit\TestCase;
 
 /** @covers \App\Application\AddActivity\Handler */
 final class HandlerTest extends TestCase
@@ -29,9 +27,8 @@ final class HandlerTest extends TestCase
         $training = Training::create(new Name('Some training'), $this->createMock(PlanById::class));
         $repo = $this->createMock(TrainingById::class);
         $repo->method('findOne')->willReturn($training);
-        $exists = $this->createMock(ExerciseById::class);
-        $exists->method('findOne')->willReturn(new Exercise(ExerciseId::random(), new Name('name')));
-        $store = $this->createMock(StoreTraining::class);
+        $exists = $this->exerciseByIdStub();
+        $store = $this->createMock(TrainingStore::class);
         $store->expects($this->once())->method('store')->with($training);
 
         $handler = new Handler($repo, $store, $exists);
@@ -56,7 +53,7 @@ final class HandlerTest extends TestCase
         $repo = $this->createMock(TrainingById::class);
         $repo->method('findOne')->willReturn(null);
         $exists = $this->createMock(ExerciseById::class);
-        $store = $this->createMock(StoreTraining::class);
+        $store = $this->createMock(TrainingStore::class);
 
         $handler = new Handler($repo, $store, $exists);
 

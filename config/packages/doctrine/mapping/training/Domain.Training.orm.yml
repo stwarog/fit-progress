@@ -6,11 +6,14 @@ App\Domain\Training:
       type: string
       generator:
         strategy: NONE
+  fields:
     name:
       type: string
       length: 50
     date:
-      type: datetime
+      type: string
+      nullable: true
     planId:
       type: string
       length: 50
+      nullable: true
