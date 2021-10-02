@@ -12,6 +12,7 @@ use App\Domain\Exceptions\NotFoundException;
 use App\Domain\Name;
 use App\Domain\Repeats;
 use App\Domain\Repository\ExerciseById;
+use App\Domain\TrainingId;
 use App\Domain\Weight;
 use PHPUnit\Framework\TestCase;
 
@@ -27,6 +28,7 @@ final class ActivityTest extends TestCase
         // When initialized
         $sut = new Activity(
             new ActivityId('value'),
+            TrainingId::random(),
             new Weight(100),
             new Repeats(5),
             ExerciseId::random(),
@@ -49,6 +51,7 @@ final class ActivityTest extends TestCase
         // When initialized & Then
         new Activity(
             new ActivityId('value'),
+            TrainingId::random(),
             new Weight(100),
             new Repeats(5),
             ExerciseId::random(),

@@ -87,6 +87,7 @@ final class TrainingTest extends TestCase
 
         $activity = new Activity(
             ActivityId::random(),
+            TrainingId::random(),
             new Weight(100),
             new Repeats(10),
             ExerciseId::random(),

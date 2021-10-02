@@ -12,6 +12,7 @@ final class Activity
 {
     public function __construct(
         private ActivityId $id,
+        private TrainingId $trainingId,
         private Weight $weight,
         private Repeats $repeats,
         private ExerciseId $exerciseId,

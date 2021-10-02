@@ -32,6 +32,7 @@ final class Handler implements CommandHandler
         $training->add(
             new Activity(
                 ActivityId::random(),
+                $command->trainingId,
                 $command->weight,
                 $command->repeats,
                 $command->exerciseId,
