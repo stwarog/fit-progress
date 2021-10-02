@@ -25,13 +25,16 @@ phpcs_fix:
 deptrac:
 	composer deptrac
 
-make tests_unit:
+tests: unit behat
+unit:
 	docker-compose run --rm tests unit
+behat:
+	docker-compose run --rm tests behat
 
 dump:
 	docker-compose run --rm tests dump-autoload
 
-check: phpcs deptrac tests_unit
+check: phpcs deptrac unit behat
 
 schema:
 	php bin/console doctrine:schema:update --force
