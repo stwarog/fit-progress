@@ -1,0 +1,16 @@
+App\Domain\Training:
+  type: entity
+  table: trainings
+  id:
+    id:
+      type: string
+      generator:
+        strategy: NONE
+    name:
+      type: string
+      length: 50
+    date:
+      type: datetime
+    planId:
+      type: string
+      length: 50

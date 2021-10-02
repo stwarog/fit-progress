@@ -39,6 +39,45 @@ final class TrainingTest extends TestCase
         return $sut;
     }
 
+    public function testConstructorWithoutOptional(): void
+    {
+        // Given training 1 & 2 without optional args
+        $sut1 = new Training(
+            new TrainingId('value'),
+            new Name('some name'),
+            $this->createMock(PlanById::class),
+        );
+
+        $sut2 = new Training(
+            new TrainingId('value'),
+            new Name('some name'),
+            $this->createMock(PlanById::class),
+        );
+
+        // When created & Then should be equal
+        $this->assertEquals($sut1, $sut2);
+    }
+
+    public function testConstructorWithoutOptionalFail(): void
+    {
+        // Given training 1 & 2 without optional args
+        $sut1 = new Training(
+            new TrainingId('value'),
+            new Name('some name'),
+            $this->createMock(PlanById::class),
+        );
+
+        $sut2 = new Training(
+            new TrainingId('value'),
+            new Name('some name'),
+            $this->createMock(PlanById::class),
+            new Date('2020-01-01')
+        );
+
+        // When created & Then should be equal
+        $this->assertNotEquals($sut1, $sut2);
+    }
+
     /** @depends testConstructor */
     public function testAddActivity(Training $sut): void
     {
