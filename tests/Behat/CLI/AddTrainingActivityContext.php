@@ -123,7 +123,7 @@ final class AddTrainingActivityContext implements Context
     }
 
     /**
-     * @When /^command app:add:activity is executed$/
+     * @When /^command app:activity:add is executed$/
      */
     public function commandAppAddActivityIsExecuted()
     {
@@ -134,5 +134,27 @@ final class AddTrainingActivityContext implements Context
             $this->command->run($input, $output);
         } catch (RuntimeException $e) {
         }
+    }
+
+    /**
+     * @Given /^an Activity without fields$/
+     */
+    public function anActivityWithoutFields()
+    {
+        $this->args = [];
+    }
+
+    /**
+     * @Then /^no Activity should be created$/
+     */
+    public function noActivityShouldBeCreated()
+    {
+        $qb = $this->em->createQueryBuilder();
+        $qb->select('count(a.id)')
+            ->from(Activity::class, 'a');
+
+        $count = $qb->getQuery()->getSingleScalarResult();
+
+        Assert::assertEquals(0, $count);
     }
 }
