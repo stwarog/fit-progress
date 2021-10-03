@@ -18,3 +18,6 @@ App\Domain\Activity:
       type: string
       length: 50
       nullable: true
+    date:
+      type: string
+      length: 19

@@ -103,7 +103,7 @@ final class AddTrainingActivityContext implements Context
     public function newActivityShouldBeAdded(TableNode $table)
     {
         $qb = $this->em->createQueryBuilder();
-        $qb->select('a.id, a.trainingId, a.exerciseId, a.repeats, a.weight')
+        $qb->select('a.id, a.trainingId, a.exerciseId, a.repeats, a.weight, a.date')
             ->where('a.trainingId = :training')
             ->from(Activity::class, 'a');
 
@@ -113,13 +113,14 @@ final class AddTrainingActivityContext implements Context
         $qb->setParameter('training', $expected[0]);
 
         $actual = $qb->getQuery()->getSingleResult();
-        $actual = array_values(array_slice($actual, 1));
-        $expected = array_values($expected);
+        [$t, $e, $r, $w, $date] = array_values(array_slice($actual, 1));
+        [$training, $weight, $repeats, $exercise] = array_values($expected);
 
-        Assert::assertEquals($expected[0], $actual[0]);
-        Assert::assertEquals($expected[1], $actual[3]);
-        Assert::assertEquals($expected[2], $actual[2]);
-        Assert::assertEquals($expected[3], $actual[1]);
+        Assert::assertEquals($training, $t);
+        Assert::assertEquals($weight, $w);
+        Assert::assertEquals($repeats, $r);
+        Assert::assertEquals($exercise, $e);
+        Assert::assertNotEmpty($date);
     }
 
     /**

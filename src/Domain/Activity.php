@@ -11,11 +11,13 @@ use App\Domain\Repository\ExerciseById;
 final class Activity
 {
     private int $repeats;
+    private float $weight;
+    private string $date;
 
     public function __construct(
         private ActivityId $id,
         private TrainingId $trainingId,
-        private Weight $weight,
+        Weight $weight,
         Repeats $repeats,
         private ExerciseId $exerciseId,
         private ExerciseById $exists
@@ -24,5 +26,7 @@ final class Activity
             throw new NotFoundException('Exercise not found');
         }
         $this->repeats = $repeats->getValue();
+        $this->weight = $weight->getValue();
+        $this->date = (string)DateTime::now();
     }
 }
