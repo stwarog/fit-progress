@@ -24,7 +24,7 @@ services:
     App\Application\AddActivity\Handler:
         public: true
         arguments:
-            - 'App\Infrastructure\Repository\InMemoryTraining'
+          - 'App\Infrastructure\Repository\TrainingStore'
 
 
     # makes classes in src/ available to be used as services

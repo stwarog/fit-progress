@@ -13,7 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class AddActivity extends Command
 {
-    protected static $defaultName = 'app:activity:create';
+    protected static $defaultName = 'app:activity:add';
     protected static $defaultDescription = 'Creates new activity';
 
     protected function configure()

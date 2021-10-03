@@ -18,7 +18,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     {
         return new class ($returnNull) implements PlanById {
 
-            public function __construct(private bool $returnNull)
+            public function __construct(private bool $returnNull = false)
             {
             }
 

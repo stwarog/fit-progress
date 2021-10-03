@@ -15,9 +15,8 @@ final class Training implements Countable
     private string $name;
     private string $date;
     private ?string $planId;
-    private PlanById $exists;
 
-    private array $activities = [];
+    private ArrayCollection $activities;
 
     public function __construct(
         TrainingId $id,
@@ -25,14 +24,17 @@ final class Training implements Countable
         PlanById $exists,
         ?Date $date = null,
         ?PlanId $planId = null
-    ) {
+    )
+    {
         if (!empty($planId) && empty($exists->findOne($planId))) {
-            throw new NotFoundException('Plan not found');
+            throw new NotFoundException('Plan not found for: ' . $planId);
         }
         $this->id = (string)$id;
         $this->name = (string)$name;
         $this->date = $date ? (string)$date : (string)Date::now();
         $this->planId = $planId ? (string)$planId : $planId;
+
+        $this->activities = new ArrayCollection();
     }
 
     public static function create(Name $name, PlanById $exists, ?Date $date = null, ?PlanId $planId = null): self
@@ -48,7 +50,7 @@ final class Training implements Countable
 
     public function add(Activity $exercise): void
     {
-        $this->activities[] = $exercise;
+        $this->activities->add($exercise);
     }
 
     public function count(): int

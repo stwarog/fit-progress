@@ -17,3 +17,7 @@ App\Domain\Training:
       type: string
       length: 50
       nullable: true
+  oneToMany:
+    activities:
+      targetEntity: Activity
+      mappedBy: trainingId

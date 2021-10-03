@@ -18,7 +18,7 @@ final class TrainingContext implements Context
     private array $args = [];
 
     public function __construct(
-        private CreateTraining $createTraining,
+        private CreateTraining $command,
         private EntityManagerInterface $em,
         private PlanById $planById
     ) {
@@ -42,7 +42,7 @@ final class TrainingContext implements Context
         $output = new NullOutput();
 
         try {
-            $this->createTraining->run($input, $output);
+            $this->command->run($input, $output);
         } catch (RuntimeException $e) {
         }
     }
