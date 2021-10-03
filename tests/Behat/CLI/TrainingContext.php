@@ -25,6 +25,11 @@ final class TrainingContext implements Context
         $this->em->beginTransaction();
     }
 
+    public function __destruct()
+    {
+        $this->em->rollback();
+    }
+
     /**
      * @Given /^a Training named "([^"]*)"$/
      */
@@ -34,7 +39,7 @@ final class TrainingContext implements Context
     }
 
     /**
-     * @When /^command is executed$/
+     * @When /^command app:training:create is executed$/
      */
     public function aCommandIsExecuted()
     {

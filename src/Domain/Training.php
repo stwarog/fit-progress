@@ -7,6 +7,8 @@ namespace App\Domain;
 use App\Domain\Exceptions\NotFoundException;
 use App\Domain\Repository\PlanById;
 use Countable as Countable;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use JetBrains\PhpStorm\Pure;
 
 final class Training implements Countable
@@ -16,7 +18,7 @@ final class Training implements Countable
     private string $date;
     private ?string $planId;
 
-    private ArrayCollection $activities;
+    private Collection $activities;
 
     public function __construct(
         TrainingId $id,
@@ -24,8 +26,7 @@ final class Training implements Countable
         PlanById $exists,
         ?Date $date = null,
         ?PlanId $planId = null
-    )
-    {
+    ) {
         if (!empty($planId) && empty($exists->findOne($planId))) {
             throw new NotFoundException('Plan not found for: ' . $planId);
         }

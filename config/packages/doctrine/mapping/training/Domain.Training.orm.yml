@@ -20,4 +20,6 @@ App\Domain\Training:
   oneToMany:
     activities:
       targetEntity: Activity
-      mappedBy: trainingId
+      mappedBy: training_id
+      cascade:
+        - persist

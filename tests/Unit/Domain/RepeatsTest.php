@@ -12,10 +12,17 @@ use PHPUnit\Framework\TestCase;
 /** @covers \App\Domain\Repeats */
 final class RepeatsTest extends TestCase
 {
-    public function testConstructor(): void
+    public function testConstructor(): Repeats
     {
         $sut = new Repeats(1);
         $this->assertInstanceOf(Repeats::class, $sut);
+        return $sut;
+    }
+
+    /** @depends testConstructor */
+    public function testShouldBeStringCastable(Repeats $sut): void
+    {
+        $this->assertSame('1', (string)$sut);
     }
 
     /** @dataProvider provideConstructorValueOutOf1To100RangeThrowsError */

@@ -12,10 +12,17 @@ use PHPUnit\Framework\TestCase;
 /** @covers \App\Domain\Weight */
 final class WeightTest extends TestCase
 {
-    public function testConstructor(): void
+    public function testConstructor(): Weight
     {
         $sut = new Weight(5.5);
         $this->assertInstanceOf(Weight::class, $sut);
+        return $sut;
+    }
+
+    /** @depends testConstructor */
+    public function testShouldBeStringCastable(Weight $sut): void
+    {
+        $this->assertSame('5.5', (string)$sut);
     }
 
     /** @dataProvider provideConstructorValueOutOf5To300RangeThrowsError */

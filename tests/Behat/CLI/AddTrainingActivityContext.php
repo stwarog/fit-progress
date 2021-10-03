@@ -15,7 +15,6 @@ use App\UI\Cli\AddActivity;
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;
 use Doctrine\ORM\EntityManagerInterface;
-use Exception;
 use PHPUnit\Framework\Assert;
 use Symfony\Component\Console\Exception\RuntimeException;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -33,7 +32,12 @@ final class AddTrainingActivityContext implements Context
         private PlanById $planById,
         private TrainingStore $store
     ) {
-//        $this->em->beginTransaction();
+        $this->em->beginTransaction();
+    }
+
+    public function __destruct()
+    {
+        $this->em->rollback();
     }
 
     /**
@@ -49,16 +53,16 @@ final class AddTrainingActivityContext implements Context
      */
     public function thereIsAnExistingTraining($training)
     {
-        $t = new Training(
-            new TrainingId($training),
-            new Name('FBW'),
-            $this->planById
-        );
-        try {
+        $trainingId = new TrainingId($training);
+
+        if (empty($this->trainingById->findOne($trainingId))) {
+            $t = new Training(
+                $trainingId,
+                new Name('FBW'),
+                $this->planById
+            );
             $this->store->store($t);
-        } catch (Exception $e) {
         }
-        Assert::assertNotNull($this->trainingById->findOne(new TrainingId($training)));
     }
 
     /**
@@ -99,24 +103,23 @@ final class AddTrainingActivityContext implements Context
     public function newActivityShouldBeAdded(TableNode $table)
     {
         $qb = $this->em->createQueryBuilder();
-        $qb->select('count(a.id)')
+        $qb->select('a.id, a.trainingId, a.exerciseId, a.repeats, a.weight')
             ->where('a.trainingId = :training')
-            ->andWhere('a.exerciseId = :exercise')
-            ->andWhere('a.weight = :weight')
-            ->andWhere('a.repeats = :repeats')
             ->from(Activity::class, 'a');
 
-        $columns = $table->getRow(0);
         $rows = $table->getRow(1);
+        $expected = $rows;
 
-        foreach (array_combine($columns, $rows) as $k => $v) {
-            dump($k, $v);
-            $qb->setParameter($k, $v);
-        }
+        $qb->setParameter('training', $expected[0]);
 
-        $count = $qb->getQuery()->getSingleScalarResult();
+        $actual = $qb->getQuery()->getSingleResult();
+        $actual = array_values(array_slice($actual, 1));
+        $expected = array_values($expected);
 
-        Assert::assertEquals(1, $count);;
+        Assert::assertEquals($expected[0], $actual[0]);
+        Assert::assertEquals($expected[1], $actual[3]);
+        Assert::assertEquals($expected[2], $actual[2]);
+        Assert::assertEquals($expected[3], $actual[1]);
     }
 
     /**
