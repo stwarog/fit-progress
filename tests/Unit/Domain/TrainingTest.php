@@ -116,7 +116,7 @@ final class TrainingTest extends TestCase
                 new Plan(
                     PlanId::random(),
                     new Name('name'),
-                    [new Exercise(ExerciseId::random(), new Name('name'))]
+                    [ExerciseId::random()]
                 )
             );
 

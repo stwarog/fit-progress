@@ -17,18 +17,8 @@ final class PlanTest extends TestCase
 {
     public function testConstructor(): void
     {
-        $sut = new Plan(PlanId::random(), new Name('FBW'), [new Exercise(ExerciseId::random(), new Name('name'))]);
+        $sut = new Plan(PlanId::random(), new Name('FBW'), [ExerciseId::random()]);
         $this->assertInstanceOf(Plan::class, $sut);
-    }
-
-    public function testConstructorMissingExercisesThrowsError(): void
-    {
-        // Expect
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Missing exercises in plan');
-
-        // When given plan without any exercises
-        new Plan(PlanId::random(), new Name('FBW'), []);
     }
 
     public function testConstructorNoExerciseGivenThrowsError(): void
@@ -39,5 +29,23 @@ final class PlanTest extends TestCase
 
         // When given plan with class different from Exercise
         new Plan(PlanId::random(), new Name('FBW'), [$this]);
+    }
+
+    public function testAddExerciseExists(): void
+    {
+        // Given plan with one Exercise
+        $sut = new Plan(
+            PlanId::random(),
+            new Name('FBW'),
+            [ExerciseId::random()]
+        );
+
+        // When another one is added
+        $sut->add(
+            new Exercise(ExerciseId::random(), new Name('name 2'))
+        );
+
+        // Then it should be stored
+        $this->assertCount(2, $sut);
     }
 }

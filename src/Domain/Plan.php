@@ -5,21 +5,40 @@ declare(strict_types=1);
 namespace App\Domain;
 
 use App\Domain\Catalog\Exercise;
+use App\Domain\Catalog\ExerciseId;
+use Countable;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use InvalidArgumentException;
 
-final class Plan
+final class Plan implements Countable
 {
-    public function __construct(private PlanId $id, private Name $name, private array $exercises)
+    private string $id;
+    private string $name;
+    private Collection $exercises;
+
+    public function __construct(PlanId $id, Name $name, array $exercises = [])
     {
-        if (empty($this->exercises)) {
-            throw new InvalidArgumentException('Missing exercises in plan');
-        }
+        $this->exercises = new ArrayCollection($exercises);
+
         foreach ($this->exercises as $e) {
-            if (!$e instanceof Exercise) {
+            if (!$e instanceof ExerciseId) {
                 throw new InvalidArgumentException(
                     sprintf('Plan accepts only Exercises, %s given', get_class($e))
                 );
             }
         }
+        $this->id = (string)$id;
+        $this->name = (string)$name;
+    }
+
+    public function add(Exercise $e): void
+    {
+        $this->exercises[] = $e;
+    }
+
+    public function count(): int
+    {
+        return count($this->exercises);
     }
 }

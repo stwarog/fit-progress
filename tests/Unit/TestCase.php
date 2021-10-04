@@ -31,10 +31,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
                     PlanId::random(),
                     new Name('FBW'),
                     [
-                        new Exercise(
-                            ExerciseId::random(),
-                            new Name('Push ups')
-                        )
+                        ExerciseId::random()
                     ]
                 );
             }
