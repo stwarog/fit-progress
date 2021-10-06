@@ -9,7 +9,6 @@ use App\Domain\Catalog\ExerciseId;
 use Countable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use InvalidArgumentException;
 
 final class Plan implements Countable
 {
@@ -23,9 +22,9 @@ final class Plan implements Countable
 
         foreach ($this->exercises as $e) {
             if (!$e instanceof ExerciseId) {
-                throw new InvalidArgumentException(
-                    sprintf('Plan accepts only Exercises, %s given', get_class($e))
-                );
+//                throw new InvalidArgumentException(
+////                    sprintf('Plan accepts only Exercises, %s given', get_class($e))
+//                );
             }
         }
         $this->id = (string)$id;
