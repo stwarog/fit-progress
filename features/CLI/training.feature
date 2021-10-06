@@ -1,18 +1,18 @@
 Feature:
-    In order to prove a training CLI works
-    I can pass arguments to CLI.
+  In order to prove a training CLI works
+  I can pass arguments to CLI.
 
-    The mandatory arguments are:
-    - name
+  The mandatory arguments are:
+  - name
 
-    Extra fields are:
-    - date (if not passed, current date should be used)
-    - plan
+  Extra fields are:
+  - date (if not passed, current date should be used)
+  - plan
 
-    Scenario: Create training with name
-      Given   a Training named "Full body work out"
-      When    command app:training:create is executed
-      Then    new Training should be created with name "Full body work out" and current date
+  Scenario: Create training with name
+    Given   a Training named "Full body work out"
+    When    command app:training:create is executed
+    Then    new Training should be created with name "Full body work out" and current date
 
   Scenario: Create training with name and date
     Given   a Training named "Full body work out 2"

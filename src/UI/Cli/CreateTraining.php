@@ -16,17 +16,17 @@ final class CreateTraining extends Command
     protected static $defaultName = 'app:training:create';
     protected static $defaultDescription = 'Creates new training';
 
+    public function __construct(private CommandBus $bus)
+    {
+        parent::__construct();
+    }
+
     protected function configure()
     {
         $this->addArgument('name', InputArgument::REQUIRED);
         $this->addArgument('date', InputArgument::OPTIONAL);
         $this->addArgument('plan', InputArgument::OPTIONAL);
         parent::configure();
-    }
-
-    public function __construct(private CommandBus $bus)
-    {
-        parent::__construct();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

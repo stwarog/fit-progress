@@ -16,6 +16,11 @@ final class AddActivity extends Command
     protected static $defaultName = 'app:activity:add';
     protected static $defaultDescription = 'Creates new activity';
 
+    public function __construct(private CommandBus $bus)
+    {
+        parent::__construct();
+    }
+
     protected function configure()
     {
         $this->addArgument('training', InputArgument::REQUIRED);
@@ -23,11 +28,6 @@ final class AddActivity extends Command
         $this->addArgument('repeats', InputArgument::REQUIRED);
         $this->addArgument('exercise', InputArgument::REQUIRED);
         parent::configure();
-    }
-
-    public function __construct(private CommandBus $bus)
-    {
-        parent::__construct();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

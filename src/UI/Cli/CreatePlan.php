@@ -16,15 +16,15 @@ final class CreatePlan extends Command
     protected static $defaultName = 'app:plan:create';
     protected static $defaultDescription = 'Creates new Plan';
 
+    public function __construct(private CommandBus $bus)
+    {
+        parent::__construct();
+    }
+
     protected function configure()
     {
         $this->addArgument('name', InputArgument::REQUIRED);
         parent::configure();
-    }
-
-    public function __construct(private CommandBus $bus)
-    {
-        parent::__construct();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
