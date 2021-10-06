@@ -17,9 +17,16 @@ App\Domain\Training:
       type: string
       length: 50
       nullable: true
-  oneToMany:
+  manyToMany:
     activities:
       targetEntity: Activity
-      mappedBy: training_id
+      joinTable:
+        name: training_activities
+        joinColumns:
+          training_id:
+            referencedColumnName: id
+        inverseJoinColumns:
+          activity_id:
+            referencedColumnName: id
       cascade:
         - persist
