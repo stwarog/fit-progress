@@ -24,13 +24,24 @@ final class CreatePlan extends Command
     protected function configure()
     {
         $this->addArgument('name', InputArgument::REQUIRED);
+        $this->addArgument(
+            'exercises',
+            InputArgument::IS_ARRAY,
+            'Should be valid json: "[[weight: float, repeats: int, exercise_id: str]]"'
+        );
         parent::configure();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $exercises = $input->getArgument('exercises');
+        if ($exercises) {
+            $exercises = array_map(fn(string $set) => explode(',', $set), $exercises);
+        }
+
         $command = new CreatePlanCommand(
             $input->getArgument('name'),
+            $exercises ?? []
         );
 
         $this->bus->handle($command);

@@ -2,10 +2,11 @@
 
 namespace App\Tests\Behat\CLI;
 
+use App\Domain\Activity;
 use App\Domain\Plan;
-use App\Domain\Repository\PlanById;
 use App\UI\Cli\CreatePlan;
 use Behat\Behat\Context\Context;
+use Behat\Gherkin\Node\TableNode;
 use Doctrine\ORM\EntityManagerInterface;
 use PHPUnit\Framework\Assert;
 use Symfony\Component\Console\Exception\RuntimeException;
@@ -18,8 +19,7 @@ final class PlanContext implements Context
 
     public function __construct(
         private CreatePlan $command,
-        private EntityManagerInterface $em,
-        private PlanById $planById
+        private EntityManagerInterface $em
     ) {
         $this->em->beginTransaction();
     }
@@ -88,5 +88,39 @@ final class PlanContext implements Context
         $count = $qb->getQuery()->getSingleScalarResult();
 
         Assert::assertEquals(0, $count);
+    }
+
+    /**
+     * @Given /^exercises are set to$/
+     */
+    public function exercisesAreSetTo(TableNode $table)
+    {
+        $data = [];
+
+        foreach ($table as $item) {
+            $data[] = array_values($item);
+        }
+
+        $this->args['exercises'] = json_encode($data);
+    }
+
+    /**
+     * @Given /^plan exercises should be added$/
+     */
+    public function planExercisesShouldBeAdded(TableNode $table)
+    {
+        $qb = $this->em->createQueryBuilder();
+        $qb->select('a.id, a.exerciseId, a.repeats, a.weight')
+            ->from(Activity::class, 'a')
+            ->orderBy('a.weight');
+
+        $actual = $qb->getQuery()->getResult();
+
+        for ($c = 0; $c !== count($actual); $c++) {
+            $a = array_slice($actual[$c], 1);
+            $a = array_reverse($a);
+            $e = $table->getRow($c + 1);
+            Assert::assertEquals(array_values($e), array_values($a));
+        }
     }
 }
