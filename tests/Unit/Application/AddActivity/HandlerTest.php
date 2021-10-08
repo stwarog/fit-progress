@@ -6,9 +6,9 @@ namespace Unit\Application\AddActivity;
 
 use App\Application\AddActivity\Command;
 use App\Application\AddActivity\Handler;
+use App\Domain\Catalog\ExerciseById;
 use App\Domain\Exceptions\NotFoundException;
 use App\Domain\Name;
-use App\Domain\Repository\ExerciseById;
 use App\Domain\Repository\PlanById;
 use App\Domain\Repository\TrainingById;
 use App\Domain\Repository\TrainingStore;

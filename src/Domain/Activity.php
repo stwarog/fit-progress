@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Domain;
 
+use App\Domain\Catalog\ExerciseById;
 use App\Domain\Catalog\ExerciseId;
 use App\Domain\Exceptions\NotFoundException;
-use App\Domain\Repository\ExerciseById;
 
 final class Activity
 {

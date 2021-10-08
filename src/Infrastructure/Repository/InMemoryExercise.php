@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Infrastructure\Repository;
 
 use App\Domain\Catalog\Exercise;
+use App\Domain\Catalog\ExerciseById;
 use App\Domain\Catalog\ExerciseId;
 use App\Domain\Name;
-use App\Domain\Repository\ExerciseById;
 use JetBrains\PhpStorm\Pure;
 
 /**

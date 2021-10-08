@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Repository;
 
+use App\Domain\Catalog\ExerciseById;
 use App\Domain\Catalog\ExerciseId as CatalogExerciseId;
 use App\Domain\Exercise;
 use App\Domain\ExerciseId;
@@ -11,7 +12,6 @@ use App\Domain\Name;
 use App\Domain\Plan;
 use App\Domain\PlanId;
 use App\Domain\Repeats;
-use App\Domain\Repository\ExerciseById;
 use App\Domain\Repository\PlanById;
 use App\Domain\Weight;
 

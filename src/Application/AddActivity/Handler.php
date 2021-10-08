@@ -7,8 +7,8 @@ namespace App\Application\AddActivity;
 use App\Application\CommandHandler;
 use App\Domain\Activity;
 use App\Domain\ActivityId;
+use App\Domain\Catalog\ExerciseById;
 use App\Domain\Exceptions\NotFoundException;
-use App\Domain\Repository\ExerciseById;
 use App\Domain\Repository\TrainingById;
 use App\Domain\Repository\TrainingStore;
 

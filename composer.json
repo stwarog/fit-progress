@@ -74,7 +74,7 @@
     "phpunit": "./vendor/bin/phpunit --testdox",
     "unit": "@phpunit -c tests/unit.xml",
     "phpcs": "./vendor/bin/phpcs --report=full --standard=PSR12 ./src",
-    "behat": "./vendor/bin/behat -vvv",
+    "behat": "./vendor/bin/behat",
     "phpcs:fix": "./vendor/bin/phpcbf --standard=PSR12 ./src",
     "deptrac": "./vendor/bin/deptrac --graphviz-dump-image=./var/output/dep.png"
   },

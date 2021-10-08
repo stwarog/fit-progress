@@ -3,9 +3,9 @@
 namespace App\Tests\Behat\CLI;
 
 use App\Domain\Activity;
+use App\Domain\Catalog\ExerciseById;
 use App\Domain\Catalog\ExerciseId;
 use App\Domain\Name;
-use App\Domain\Repository\ExerciseById;
 use App\Domain\Repository\PlanById;
 use App\Domain\Repository\TrainingById;
 use App\Domain\Repository\TrainingStore;
