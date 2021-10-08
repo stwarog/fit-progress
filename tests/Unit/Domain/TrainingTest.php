@@ -16,6 +16,7 @@ use App\Domain\Plan;
 use App\Domain\PlanId;
 use App\Domain\Repeats;
 use App\Domain\Repository\PlanById;
+use App\Domain\Status;
 use App\Domain\Training;
 use App\Domain\TrainingId;
 use App\Domain\Weight;
@@ -37,6 +38,20 @@ final class TrainingTest extends TestCase
         $this->assertInstanceOf(Countable::class, $sut);
 
         return $sut;
+    }
+
+    public function testTrainingInitiallyPlanned(): void
+    {
+        $sut = new Training(
+            new TrainingId('value'),
+            new Name('some name'),
+            $this->createMock(PlanById::class),
+            new Date('2021-09-01')
+        );
+
+        $expected = new Status('planned');
+        $actual = $sut->getStatus();
+        $this->assertEquals($expected, $actual);
     }
 
     public function testConstructorWithoutOptional(): void
@@ -79,7 +94,7 @@ final class TrainingTest extends TestCase
     }
 
     /** @depends testConstructor */
-    public function testAddActivity(Training $sut): void
+    public function testAddActivity(Training $sut): Training
     {
         // When added new activity
         $exists = $this->createMock(ExerciseById::class);
@@ -98,6 +113,16 @@ final class TrainingTest extends TestCase
 
         // Then count should be increased
         $this->assertCount(1, $sut);
+
+        return $sut;
+    }
+
+    /** @depends testAddActivity */
+    public function testAddActivityShouldChangeTrainingStatusToStarted(Training $sut): void
+    {
+        $expected = new Status('started');
+        $actual = $sut->getStatus();
+        $this->assertEquals($expected, $actual);
     }
 
     public function testCreate(): void

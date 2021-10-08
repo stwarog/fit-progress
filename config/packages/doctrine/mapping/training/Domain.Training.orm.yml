@@ -10,6 +10,11 @@ App\Domain\Training:
     name:
       type: string
       length: 50
+    status:
+      type: string
+      length: 10
+      options:
+        default: planned
     date:
       type: string
       nullable: true

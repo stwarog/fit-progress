@@ -17,6 +17,7 @@ final class Training implements Countable
     private string $name;
     private string $date;
     private ?string $planId;
+    private string $status;
 
     private Collection $activities;
 
@@ -34,7 +35,7 @@ final class Training implements Countable
         $this->name = (string)$name;
         $this->date = $date ? (string)$date : (string)Date::now();
         $this->planId = $planId ? (string)$planId : $planId;
-
+        $this->status = (string)new Status(Status::PLANNED);
         $this->activities = new ArrayCollection();
     }
 
@@ -52,6 +53,7 @@ final class Training implements Countable
     public function add(Activity $exercise): void
     {
         $this->activities->add($exercise);
+        $this->status = (string)(new Status(Status::STARTED));
     }
 
     public function count(): int
@@ -62,5 +64,10 @@ final class Training implements Countable
     #[Pure] public function getId(): TrainingId
     {
         return new TrainingId($this->id);
+    }
+
+    public function getStatus(): Status
+    {
+        return new Status($this->status);
     }
 }
