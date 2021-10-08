@@ -8,7 +8,7 @@ use App\Domain\Plan;
 use App\Domain\Repository\PlanStore as Store;
 use Doctrine\ORM\EntityManagerInterface;
 
-final class PlanStore implements Store
+final class PlanRepo implements Store
 {
     public function __construct(private EntityManagerInterface $em)
     {
