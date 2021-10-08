@@ -19,7 +19,7 @@ App\Domain\Plan:
           plan_id:
             referencedColumnName: id
         inverseJoinColumns:
-          activity_id:
+          exercise_id:
             referencedColumnName: id
       cascade:
         - persist
