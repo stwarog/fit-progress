@@ -12,9 +12,9 @@ App\Domain\Plan:
       length: 50
   manyToMany:
     exercises:
-      targetEntity: Activity
+      targetEntity: Exercise
       joinTable:
-        name: plan_activities
+        name: plan_exercises
         joinColumns:
           plan_id:
             referencedColumnName: id

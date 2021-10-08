@@ -8,6 +8,7 @@ use App\Domain\Activity;
 use App\Domain\ActivityId;
 use App\Domain\Catalog\Exercise;
 use App\Domain\Catalog\ExerciseId;
+use App\Domain\Exercise as PlanExercise;
 use App\Domain\Name;
 use App\Domain\Plan;
 use App\Domain\PlanId;
@@ -21,9 +22,9 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
 {
     protected function planByIdStub(bool $returnNull = false): PlanById
     {
-        return new class ($returnNull) implements PlanById {
+        return new class ($this->getExerciseStub(), $returnNull) implements PlanById {
 
-            public function __construct(private bool $returnNull = false)
+            public function __construct(private PlanExercise $stub, private bool $returnNull = false)
             {
             }
 
@@ -36,7 +37,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
                     PlanId::random(),
                     new Name('FBW'),
                     [
-                        ExerciseId::random()
+                        $this->stub
                     ]
                 );
             }
@@ -73,6 +74,17 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
             new Repeats(10),
             ExerciseId::random(),
             $this->exerciseByIdStub(false)
+        );
+    }
+
+    protected function getExerciseStub(): PlanExercise
+    {
+        return new PlanExercise(
+            \App\Domain\ExerciseId::random(),
+            new Weight(20),
+            new Repeats(10),
+            ExerciseId::random(),
+            $this->exerciseByIdStub()
         );
     }
 }

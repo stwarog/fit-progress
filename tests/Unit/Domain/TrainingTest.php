@@ -20,7 +20,7 @@ use App\Domain\Training;
 use App\Domain\TrainingId;
 use App\Domain\Weight;
 use Countable;
-use PHPUnit\Framework\TestCase;
+use Unit\TestCase;
 
 /** @covers \App\Domain\Training */
 final class TrainingTest extends TestCase
@@ -116,7 +116,7 @@ final class TrainingTest extends TestCase
                 new Plan(
                     PlanId::random(),
                     new Name('name'),
-                    [ExerciseId::random()]
+                    [$this->getExerciseStub()]
                 )
             );
 

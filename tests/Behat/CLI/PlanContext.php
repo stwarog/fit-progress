@@ -2,7 +2,7 @@
 
 namespace App\Tests\Behat\CLI;
 
-use App\Domain\Activity;
+use App\Domain\Exercise;
 use App\Domain\Plan;
 use App\UI\Cli\CreatePlan;
 use Behat\Behat\Context\Context;
@@ -73,7 +73,7 @@ final class PlanContext implements Context
      */
     public function aPlanWithoutName()
     {
-        $this->args = [];
+        //
     }
 
     /**
@@ -98,10 +98,10 @@ final class PlanContext implements Context
         $data = [];
 
         foreach ($table as $item) {
-            $data[] = array_values($item);
+            $data[] = implode(',', array_values($item));
         }
 
-        $this->args['exercises'] = json_encode($data);
+        $this->args['exercises'] = $data;
     }
 
     /**
@@ -111,15 +111,15 @@ final class PlanContext implements Context
     {
         $qb = $this->em->createQueryBuilder();
         $qb->select('a.id, a.exerciseId, a.repeats, a.weight')
-            ->from(Activity::class, 'a')
+            ->from(Exercise::class, 'a')
             ->orderBy('a.weight');
 
         $actual = $qb->getQuery()->getResult();
 
         for ($c = 0; $c !== count($actual); $c++) {
-            $a = array_slice($actual[$c], 1);
-            $a = array_reverse($a);
-            $e = $table->getRow($c + 1);
+            $a = array_slice($actual[$c], 1); # remove id
+            $a = array_reverse($a); # match order with table
+            $e = $table->getRow($c + 1); # ignore column names
             Assert::assertEquals(array_values($e), array_values($a));
         }
     }

@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace App\Domain\Factory;
 
-use App\Domain\Activity as ActivityEntity;
-use App\Domain\ActivityId;
-use App\Domain\Catalog\ExerciseId;
+use App\Domain\Catalog\ExerciseId as CatalogExerciseId;
+use App\Domain\Exercise as ExerciseEntity;
+use App\Domain\ExerciseId;
 use App\Domain\Repeats;
 use App\Domain\Repository\ExerciseById;
-use App\Domain\TrainingId;
 use App\Domain\Weight;
 
 final class Activity
@@ -18,14 +17,13 @@ final class Activity
     {
     }
 
-    public function createFrom(array $data): ActivityEntity
+    public function createFrom(array $data): ExerciseEntity
     {
-        return new ActivityEntity(
-            ActivityId::random(),
-            TrainingId::random(),
+        return new ExerciseEntity(
+            ExerciseId::random(),
             new Weight((float)$data['weight']),
             new Repeats((int)$data['repeats']),
-            new ExerciseId($data['exercise_id']),
+            new CatalogExerciseId($data['exercise_id']),
             $this->exists
         );
     }

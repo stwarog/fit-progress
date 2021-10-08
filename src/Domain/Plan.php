@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace App\Domain;
 
-use App\Domain\Catalog\Exercise;
-use App\Domain\Catalog\ExerciseId;
 use Countable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use InvalidArgumentException;
 
 final class Plan implements Countable
 {
@@ -21,10 +20,10 @@ final class Plan implements Countable
         $this->exercises = new ArrayCollection($exercises);
 
         foreach ($this->exercises as $e) {
-            if (!$e instanceof ExerciseId) {
-//                throw new InvalidArgumentException(
-////                    sprintf('Plan accepts only Exercises, %s given', get_class($e))
-//                );
+            if (!$e instanceof Exercise) {
+                throw new InvalidArgumentException(
+                    sprintf('Plan accepts only %s, %s given', Exercise::class, get_class($e))
+                );
             }
         }
         $this->id = (string)$id;
