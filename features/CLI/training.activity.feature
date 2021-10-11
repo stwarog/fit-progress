@@ -19,8 +19,8 @@ Feature:
     And     repeats "10" are set
     When    command app:activity:add is executed
     Then    new Activity should be added
-      | training                             | weight | repeats | exercise                             |
-      | a7041851-d794-4153-a337-db468eefd7b5 | 20     | 10      | 4ef022ee-bd51-405e-b1a6-e23139a3e9d3 |
+      | weight | repeats | exercise                             |
+      | 20     | 10      | 4ef022ee-bd51-405e-b1a6-e23139a3e9d3 |
 
   @fail
   Scenario: Add Activity without mandatory fields

@@ -14,10 +14,6 @@ App\Domain\Activity:
     exerciseId:
       type: string
       length: 50
-    trainingId:
-      type: string
-      length: 50
-      nullable: true
     date:
       type: string
       length: 19
