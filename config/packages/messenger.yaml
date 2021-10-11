@@ -8,6 +8,11 @@ framework:
         middleware:
           - handle_message
 
+      messenger.bus.query:
+        default_middleware: false
+        middleware:
+          - handle_message
+
     transports:
     # https://symfony.com/doc/current/messenger.html#transport-configuration
     # async: '%env(MESSENGER_TRANSPORT_DSN)%'
