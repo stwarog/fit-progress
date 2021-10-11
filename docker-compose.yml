@@ -2,7 +2,7 @@ version: '3.7'
 services:
   tests:
     container_name: fitter_tests
-    image: composer:latest
+    image: composer:latest # todo: latest is dangerous, use specific version, for dev purposes php 8.0 is fine
     environment:
       - COMPOSER_CACHE_DIR=/app/.cache/composer
     volumes:
