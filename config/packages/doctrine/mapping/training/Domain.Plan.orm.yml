@@ -14,7 +14,7 @@ App\Domain\Plan:
     exercises:
       targetEntity: Exercise
       joinTable:
-        name: plan_exercises
+        name: join_plan_exercises
         joinColumns:
           plan_id:
             referencedColumnName: id

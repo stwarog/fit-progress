@@ -26,7 +26,7 @@ App\Domain\Training:
     activities:
       targetEntity: Activity
       joinTable:
-        name: training_activities
+        name: join_training_activities
         joinColumns:
           training_id:
             referencedColumnName: id

@@ -1,6 +1,6 @@
 App\Domain\Activity:
   type: entity
-  table: activities
+  table: training_activities
   id:
     id:
       type: string
