@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use InvalidArgumentException;
 
-final class Plan implements Countable
+class Plan implements Countable
 {
     private string $id;
     private string $name;

@@ -1,6 +1,6 @@
 App\Domain\Exercise:
   type: entity
-  table: plan_exercise
+  table: plan_exercises
   id:
     id:
       type: string
