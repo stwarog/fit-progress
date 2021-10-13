@@ -6,7 +6,6 @@ namespace App\Domain;
 
 use App\Domain\Exceptions\NotFoundException;
 use App\Domain\Repository\PlanById;
-use App\Infrastructure\ORM\Mapping\PlanTrait;
 use Countable as Countable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -14,8 +13,6 @@ use JetBrains\PhpStorm\Pure;
 
 final class Training implements Countable
 {
-    use PlanTrait;
-
     private string $id;
     private string $name;
     private string $date;
