@@ -26,11 +26,11 @@ final class WeightTest extends TestCase
     }
 
     /** @dataProvider provideConstructorValueOutOf5To300RangeThrowsError */
-    public function testConstructorValueOutOf5To300RangeThrowsError(float $value): void
+    public function testConstructorValueOutOf1To10000RangeThrowsError(float $value): void
     {
         // Expect
         $this->expectException(OutOfBoundsException::class);
-        $this->expectExceptionMessage('Weight value must be in range [5-300]');
+        $this->expectExceptionMessage('Weight value must be in range [1-10000]');
 
         // Given Weight with value
         $sut = new Weight($value);
@@ -39,6 +39,6 @@ final class WeightTest extends TestCase
     public function provideConstructorValueOutOf5To300RangeThrowsError(): Generator
     {
         yield '-1' => [-1.0];
-        yield '300.5' => [300.5];
+        yield '10000.5' => [10000.5];
     }
 }
