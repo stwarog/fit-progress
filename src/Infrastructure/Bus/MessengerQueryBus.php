@@ -6,6 +6,7 @@ namespace App\Infrastructure\Bus;
 
 use App\Application\Query;
 use App\Application\QueryBus;
+use App\Application\Result;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Messenger\Stamp\HandledStamp;
 use Throwable;
@@ -20,7 +21,7 @@ final class MessengerQueryBus implements QueryBus
     }
 
     /** @throws Throwable */
-    public function ask(Query $query): mixed
+    public function ask(Query $query): Result
     {
         $envelope = $this->messageBus->dispatch($query);
 
