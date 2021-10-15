@@ -21,7 +21,7 @@ final class Handler implements CommandHandler
     public function __invoke(Command $command): void
     {
         $training = new Training(
-            TrainingId::random(),
+            $command->id ?? TrainingId::random(),
             $command->name,
             $this->exists,
             $command->date,

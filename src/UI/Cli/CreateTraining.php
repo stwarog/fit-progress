@@ -9,6 +9,7 @@ use App\Application\CreateTraining\Command as CreateTrainingCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 final class CreateTraining extends Command
@@ -26,6 +27,7 @@ final class CreateTraining extends Command
         $this->addArgument('name', InputArgument::REQUIRED);
         $this->addArgument('date', InputArgument::OPTIONAL);
         $this->addArgument('plan', InputArgument::OPTIONAL);
+        $this->addOption('id', null, InputOption::VALUE_OPTIONAL, 'Uuid of training id');
         parent::configure();
     }
 
@@ -35,6 +37,7 @@ final class CreateTraining extends Command
             $input->getArgument('name'),
             $input->getArgument('date'),
             $input->getArgument('plan'),
+            $input->getOption('id')
         );
 
         $this->bus->handle($command);
