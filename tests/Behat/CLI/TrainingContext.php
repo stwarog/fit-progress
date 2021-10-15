@@ -2,8 +2,8 @@
 
 namespace App\Tests\Behat\CLI;
 
-use App\Domain\PlanId;
-use App\Domain\Repository\PlanById;
+use App\Application\CommandBus;
+use App\Application\CreatePlan\Command as CreatePlanCommand;
 use App\Domain\Training;
 use App\UI\Cli\CreateTraining;
 use Behat\Behat\Context\Context;
@@ -20,7 +20,7 @@ final class TrainingContext implements Context
     public function __construct(
         private CreateTraining $command,
         private EntityManagerInterface $em,
-        private PlanById $planById
+        private CommandBus $bus
     ) {
         $this->em->beginTransaction();
     }
@@ -103,7 +103,8 @@ final class TrainingContext implements Context
      */
     public function anExistingPlanWithId($planId)
     {
-        Assert::assertNotEmpty($this->planById->findOne(new PlanId($planId)));
+        $command = new CreatePlanCommand('Plan', [], $planId);
+        $this->bus->handle($command);
     }
 
     /**
