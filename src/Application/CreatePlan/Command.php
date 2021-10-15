@@ -6,11 +6,13 @@ namespace App\Application\CreatePlan;
 
 use App\Application\Command as CommandMarker;
 use App\Domain\Name;
+use App\Domain\PlanId;
 use JetBrains\PhpStorm\Immutable;
 
 #[Immutable]
 final class Command implements CommandMarker
 {
+    public ?PlanId $id = null;
     public Name $name;
 
     /**
@@ -18,8 +20,11 @@ final class Command implements CommandMarker
      */
     public array $exercises = [];
 
-    public function __construct(string $name, array $exercises = [])
+    public function __construct(string $name, array $exercises = [], ?string $id = null)
     {
+        if ($id) {
+            $this->id = new PlanId($id);
+        }
         $this->name = new Name($name);
         $this->exercises = array_map(
             fn(array $set) => array_combine(['weight', 'repeats', 'exercise_id'], $set),

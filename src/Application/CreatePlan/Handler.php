@@ -21,7 +21,7 @@ final class Handler implements CommandHandler
     public function __invoke(Command $command): void
     {
         $plan = new Plan(
-            PlanId::random(),
+            $command->id ?? PlanId::random(),
             $command->name,
             array_map(fn(array $set) => $this->factory->createFrom($set), $command->exercises)
         );

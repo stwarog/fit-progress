@@ -39,4 +39,9 @@ class Plan implements Countable
     {
         return count($this->exercises);
     }
+
+    public function getId(): PlanId
+    {
+        return new PlanId($this->id);
+    }
 }

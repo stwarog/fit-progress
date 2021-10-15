@@ -9,6 +9,7 @@ use App\Application\CreatePlan\Command as CreatePlanCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 final class CreatePlan extends Command
@@ -24,6 +25,7 @@ final class CreatePlan extends Command
     protected function configure()
     {
         $this->addArgument('name', InputArgument::REQUIRED);
+        $this->addOption('id', null, InputOption::VALUE_OPTIONAL, 'Uuid of plan id');
         $this->addArgument(
             'exercises',
             InputArgument::IS_ARRAY,
@@ -41,7 +43,8 @@ final class CreatePlan extends Command
 
         $command = new CreatePlanCommand(
             $input->getArgument('name'),
-            $exercises ?? []
+            $exercises ?? [],
+            $input->getOption('id') ?? null
         );
 
         $this->bus->handle($command);
