@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Unit\Application\CreatePlan;
+namespace Unit\Training\Application\Command\CreatePlan;
 
 use App\Application\CreatePlan\Command;
 use App\Application\CreatePlan\Handler;

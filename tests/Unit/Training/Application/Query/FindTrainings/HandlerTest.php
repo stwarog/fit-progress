@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Unit\Application\FindTrainings;
+namespace Unit\Training\Application\Query\FindTrainings;
 
 use App\Application\FindTrainings\Handler;
 use App\Application\FindTrainings\Query;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Unit\Application\AddActivity;
+namespace Unit\Training\Application\Command\AddActivity;
 
 use App\Application\AddActivity\Command;
 use PHPUnit\Framework\TestCase;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Unit\Application\CreateTraining;
+namespace Unit\Training\Application\Command\CreateTraining;
 
 use App\Application\CreateTraining\Command;
 use App\Application\CreateTraining\Handler;
