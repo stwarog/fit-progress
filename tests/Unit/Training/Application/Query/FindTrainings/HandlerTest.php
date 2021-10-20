@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Unit\Training\Application\Query\FindTrainings;
 
-use App\Domain\Date;
-use App\Domain\Name;
-use App\Domain\Status;
-use App\Domain\TrainingId;
 use App\Shared\Application\Query\Collection;
 use App\Training\Application\Query\FindTrainings\Handler;
 use App\Training\Application\Query\FindTrainings\Query;
+use App\Training\Domain\Date;
+use App\Training\Domain\Name;
+use App\Training\Domain\Status;
+use App\Training\Domain\TrainingId;
 use App\Training\Infrastructure\ReadModel\TrainingRepo;
 use App\Training\Infrastructure\ReadModel\TrainingView;
 use Unit\TestCase;

@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Unit\Training\Application\Command\CreateTraining;
 
-use App\Domain\Repository\TrainingStore;
-use App\Domain\Training;
-use App\Domain\TrainingId;
 use App\Training\Application\Command\CreateTraining\Command;
 use App\Training\Application\Command\CreateTraining\Handler;
+use App\Training\Domain\Repository\TrainingStore;
+use App\Training\Domain\Training;
+use App\Training\Domain\TrainingId;
 use Unit\TestCase;
 
 /** @covers \App\Training\Application\Command\CreateTraining\Handler */

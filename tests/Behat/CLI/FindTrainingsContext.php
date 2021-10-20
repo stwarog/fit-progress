@@ -3,7 +3,6 @@
 namespace App\Tests\Behat\CLI;
 
 use App\Shared\Application\Command\CommandBus;
-use App\Tests\Behat\Utils\TableFromOutput;
 use App\Training\Application\Command\CreatePlan\Command as CreatePlanCommand;
 use App\Training\Application\Command\CreateTraining\Command as CreateTrainingCommand;
 use App\Training\UI\Cli\FindTrainings;

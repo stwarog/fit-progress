@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Training\Application\Command\CreatePlan;
 
-use App\Domain\Factory\Activity as ActivityFactory;
-use App\Domain\Plan;
-use App\Domain\PlanId;
-use App\Domain\Repository\PlanStore;
 use App\Shared\Application\Command\CommandHandler;
+use App\Training\Domain\Factory\Activity as ActivityFactory;
+use App\Training\Domain\Plan;
+use App\Training\Domain\PlanId;
+use App\Training\Domain\Repository\PlanStore;
 
 final class Handler implements CommandHandler
 {

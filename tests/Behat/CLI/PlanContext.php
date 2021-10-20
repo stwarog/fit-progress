@@ -2,8 +2,8 @@
 
 namespace App\Tests\Behat\CLI;
 
-use App\Domain\Exercise;
-use App\Domain\Plan;
+use App\Training\Domain\Exercise;
+use App\Training\Domain\Plan;
 use App\Training\UI\Cli\CreatePlan;
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;
@@ -21,12 +21,12 @@ final class PlanContext implements Context
         private CreatePlan $command,
         private EntityManagerInterface $em
     ) {
-//        $this->em->beginTransaction();
+        $this->em->beginTransaction();
     }
 
     public function __destruct()
     {
-//        $this->em->rollback();
+        $this->em->rollback();
     }
 
     /**

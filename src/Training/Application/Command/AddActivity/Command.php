@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Training\Application\Command\AddActivity;
 
-use App\Domain\Catalog\ExerciseId;
-use App\Domain\Repeats;
-use App\Domain\TrainingId;
-use App\Domain\Weight;
 use App\Shared\Application\Command\Command as CommandMarker;
+use App\Training\Domain\Catalog\ExerciseId;
+use App\Training\Domain\Repeats;
+use App\Training\Domain\TrainingId;
+use App\Training\Domain\Weight;
 use JetBrains\PhpStorm\Immutable;
 
 #[Immutable]

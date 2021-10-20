@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Training\Infrastructure\Repository;
 
-use App\Domain\Plan;
-use App\Domain\PlanId;
-use App\Domain\Repository\PlanById;
-use App\Domain\Repository\PlanStore as Store;
+use App\Training\Domain\Plan;
+use App\Training\Domain\PlanId;
+use App\Training\Domain\Repository\PlanById;
+use App\Training\Domain\Repository\PlanStore as Store;
 use Doctrine\ORM\EntityManagerInterface;
 
 final class PlanRepo implements Store, PlanById

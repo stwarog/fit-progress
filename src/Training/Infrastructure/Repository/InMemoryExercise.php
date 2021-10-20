@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Training\Infrastructure\Repository;
 
-use App\Domain\Catalog\Exercise;
-use App\Domain\Catalog\ExerciseById;
-use App\Domain\Catalog\ExerciseId;
-use App\Domain\Name;
+use App\Training\Domain\Catalog\Exercise;
+use App\Training\Domain\Catalog\ExerciseById;
+use App\Training\Domain\Catalog\ExerciseId;
+use App\Training\Domain\Name;
 use JetBrains\PhpStorm\Pure;
 
 /**

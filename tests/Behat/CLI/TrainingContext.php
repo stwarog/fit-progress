@@ -2,9 +2,9 @@
 
 namespace App\Tests\Behat\CLI;
 
-use App\Domain\Training;
 use App\Shared\Application\Command\CommandBus;
 use App\Training\Application\Command\CreatePlan\Command as CreatePlanCommand;
+use App\Training\Domain\Training;
 use App\Training\UI\Cli\CreateTraining;
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;
@@ -22,12 +22,12 @@ final class TrainingContext implements Context
         private EntityManagerInterface $em,
         private CommandBus $bus
     ) {
-//        $this->em->beginTransaction();
+        $this->em->beginTransaction();
     }
 
     public function __destruct()
     {
-//        $this->em->rollback();
+        $this->em->rollback();
     }
 
     /**

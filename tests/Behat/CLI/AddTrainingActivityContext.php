@@ -2,15 +2,15 @@
 
 namespace App\Tests\Behat\CLI;
 
-use App\Domain\Activity;
-use App\Domain\Catalog\ExerciseById;
-use App\Domain\Catalog\ExerciseId;
-use App\Domain\Name;
-use App\Domain\Repository\PlanById;
-use App\Domain\Repository\TrainingById;
-use App\Domain\Repository\TrainingStore;
-use App\Domain\Training;
-use App\Domain\TrainingId;
+use App\Training\Domain\Activity;
+use App\Training\Domain\Catalog\ExerciseById;
+use App\Training\Domain\Catalog\ExerciseId;
+use App\Training\Domain\Name;
+use App\Training\Domain\Repository\PlanById;
+use App\Training\Domain\Repository\TrainingById;
+use App\Training\Domain\Repository\TrainingStore;
+use App\Training\Domain\Training;
+use App\Training\Domain\TrainingId;
 use App\Training\UI\Cli\AddActivity;
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;

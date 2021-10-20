@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Training\Infrastructure\ReadModel;
 
-use App\Domain\Date;
-use App\Domain\Name;
-use App\Domain\PlanId;
-use App\Domain\Status;
-use App\Domain\TrainingId;
-use App\Domain\Weight;
+use App\Training\Domain\Date;
+use App\Training\Domain\Name;
+use App\Training\Domain\PlanId;
+use App\Training\Domain\Status;
+use App\Training\Domain\TrainingId;
+use App\Training\Domain\Weight;
 use JetBrains\PhpStorm\Pure;
 use JsonSerializable;
 

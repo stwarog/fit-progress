@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Unit\Training\Infrastructure\Repository;
 
-use App\Domain\Catalog\ExerciseById;
-use App\Domain\Catalog\ExerciseId;
+use App\Training\Domain\Catalog\ExerciseById;
+use App\Training\Domain\Catalog\ExerciseId;
 use App\Training\Infrastructure\Repository\InMemoryExercise;
 use PHPUnit\Framework\TestCase;
 

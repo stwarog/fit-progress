@@ -1,0 +1,16 @@
+App\Training\Domain\Exercise:
+  type: entity
+  table: plan_exercises
+  id:
+    id:
+      type: string
+      generator:
+        strategy: NONE
+  fields:
+    weight:
+      type: float
+    repeats:
+      type: integer
+    exerciseId:
+      type: string
+      length: 50

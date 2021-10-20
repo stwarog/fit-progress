@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Training\Infrastructure\Repository;
 
-use App\Domain\Repository\TrainingById;
-use App\Domain\Repository\TrainingStore as Store;
-use App\Domain\Training;
-use App\Domain\TrainingId;
+use App\Training\Domain\Repository\TrainingById;
+use App\Training\Domain\Repository\TrainingStore as Store;
+use App\Training\Domain\Training;
+use App\Training\Domain\TrainingId;
 use Doctrine\ORM\EntityManagerInterface;
 
 final class TrainingRepo implements TrainingById, Store

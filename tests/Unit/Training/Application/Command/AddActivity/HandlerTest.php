@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Unit\Training\Application\Command\AddActivity;
 
-use App\Domain\Catalog\ExerciseById;
-use App\Domain\Name;
-use App\Domain\Repository\PlanById;
-use App\Domain\Repository\TrainingById;
-use App\Domain\Repository\TrainingStore;
-use App\Domain\Training;
 use App\Shared\Domain\Exceptions\NotFoundException;
 use App\Training\Application\Command\AddActivity\Command;
 use App\Training\Application\Command\AddActivity\Handler;
+use App\Training\Domain\Catalog\ExerciseById;
+use App\Training\Domain\Name;
+use App\Training\Domain\Repository\PlanById;
+use App\Training\Domain\Repository\TrainingById;
+use App\Training\Domain\Repository\TrainingStore;
+use App\Training\Domain\Training;
 use Unit\TestCase;
 
 /** @covers \App\Training\Application\Command\AddActivity\Handler */

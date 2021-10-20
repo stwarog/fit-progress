@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace Unit;
 
-use App\Domain\Activity;
-use App\Domain\ActivityId;
-use App\Domain\Catalog\Exercise;
-use App\Domain\Catalog\ExerciseById;
-use App\Domain\Catalog\ExerciseId;
-use App\Domain\Exercise as PlanExercise;
-use App\Domain\Name;
-use App\Domain\Plan;
-use App\Domain\PlanId;
-use App\Domain\Repeats;
-use App\Domain\Repository\PlanById;
-use App\Domain\TrainingId;
-use App\Domain\Weight;
+use App\Training\Domain\Activity;
+use App\Training\Domain\ActivityId;
+use App\Training\Domain\Catalog\Exercise;
+use App\Training\Domain\Catalog\ExerciseById;
+use App\Training\Domain\Catalog\ExerciseId;
+use App\Training\Domain\Exercise as PlanExercise;
+use App\Training\Domain\Name;
+use App\Training\Domain\Plan;
+use App\Training\Domain\PlanId;
+use App\Training\Domain\Repeats;
+use App\Training\Domain\Repository\PlanById;
+use App\Training\Domain\TrainingId;
+use App\Training\Domain\Weight;
 
 abstract class TestCase extends \PHPUnit\Framework\TestCase
 {
@@ -80,7 +80,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     protected function getExerciseStub(): PlanExercise
     {
         return new PlanExercise(
-            \App\Domain\ExerciseId::random(),
+            \App\Training\Domain\ExerciseId::random(),
             new Weight(20),
             new Repeats(10),
             ExerciseId::random(),

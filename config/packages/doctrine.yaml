@@ -10,7 +10,7 @@ doctrine:
     naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
     auto_mapping: true
     mappings:
-      App\Game\Table\Domain\Player:
+      App\Training\Domain:
         is_bundle: false
         type: yml
         dir: '%kernel.project_dir%/config/packages/doctrine/mapping/training'

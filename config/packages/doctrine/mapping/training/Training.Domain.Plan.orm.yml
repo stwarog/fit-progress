@@ -1,0 +1,25 @@
+App\Training\Domain\Plan:
+  type: entity
+  table: plans
+  id:
+    id:
+      type: string
+      generator:
+        strategy: NONE
+  fields:
+    name:
+      type: string
+      length: 50
+  manyToMany:
+    exercises:
+      targetEntity: Exercise
+      joinTable:
+        name: join_plan_exercises
+        joinColumns:
+          plan_id:
+            referencedColumnName: id
+        inverseJoinColumns:
+          exercise_id:
+            referencedColumnName: id
+      cascade:
+        - persist
