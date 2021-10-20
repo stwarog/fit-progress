@@ -10,7 +10,6 @@ use App\Domain\Catalog\Exercise;
 use App\Domain\Catalog\ExerciseById;
 use App\Domain\Catalog\ExerciseId;
 use App\Domain\Date;
-use App\Domain\Exceptions\NotFoundException;
 use App\Domain\Name;
 use App\Domain\Plan;
 use App\Domain\PlanId;
@@ -20,6 +19,7 @@ use App\Domain\Status;
 use App\Domain\Training;
 use App\Domain\TrainingId;
 use App\Domain\Weight;
+use App\Shared\Domain\Exceptions\NotFoundException;
 use Countable;
 use Unit\TestCase;
 

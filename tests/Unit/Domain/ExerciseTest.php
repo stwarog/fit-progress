@@ -7,12 +7,12 @@ namespace Unit\Domain;
 use App\Domain\Catalog\Exercise as CatalogExercise;
 use App\Domain\Catalog\ExerciseById as CatalogExerciseById;
 use App\Domain\Catalog\ExerciseId as CatalogExerciseId;
-use App\Domain\Exceptions\NotFoundException;
 use App\Domain\Exercise;
 use App\Domain\ExerciseId;
 use App\Domain\Name;
 use App\Domain\Repeats;
 use App\Domain\Weight;
+use App\Shared\Domain\Exceptions\NotFoundException;
 use PHPUnit\Framework\TestCase;
 
 /** @covers \App\Domain\Exercise */

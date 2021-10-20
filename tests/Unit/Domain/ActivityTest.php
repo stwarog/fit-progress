@@ -9,10 +9,10 @@ use App\Domain\ActivityId;
 use App\Domain\Catalog\Exercise;
 use App\Domain\Catalog\ExerciseById;
 use App\Domain\Catalog\ExerciseId;
-use App\Domain\Exceptions\NotFoundException;
 use App\Domain\Name;
 use App\Domain\Repeats;
 use App\Domain\Weight;
+use App\Shared\Domain\Exceptions\NotFoundException;
 use PHPUnit\Framework\TestCase;
 
 /** @covers \App\Domain\Activity */

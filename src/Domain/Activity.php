@@ -6,7 +6,7 @@ namespace App\Domain;
 
 use App\Domain\Catalog\ExerciseById;
 use App\Domain\Catalog\ExerciseId;
-use App\Domain\Exceptions\NotFoundException;
+use App\Shared\Domain\Exceptions\NotFoundException;
 
 final class Activity
 {

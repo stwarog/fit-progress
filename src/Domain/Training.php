@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Domain;
 
-use App\Domain\Exceptions\NotFoundException;
 use App\Domain\Repository\PlanById;
+use App\Shared\Domain\Exceptions\NotFoundException;
 use Countable as Countable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
