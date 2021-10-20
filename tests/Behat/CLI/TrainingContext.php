@@ -22,12 +22,12 @@ final class TrainingContext implements Context
         private EntityManagerInterface $em,
         private CommandBus $bus
     ) {
-        $this->em->beginTransaction();
+//        $this->em->beginTransaction();
     }
 
     public function __destruct()
     {
-        $this->em->rollback();
+//        $this->em->rollback();
     }
 
     /**

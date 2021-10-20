@@ -13,6 +13,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\NullOutput;
 use Unit\TestCase;
 
+/** @covers \App\UI\Cli\FindTrainings */
 final class FindTrainingsTest extends TestCase
 {
     public function testConstructor(): void

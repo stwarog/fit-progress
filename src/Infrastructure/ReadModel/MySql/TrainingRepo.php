@@ -26,10 +26,11 @@ final class TrainingRepo implements ReadModelTrainingRepo
             select TRAINING.id, TRAINING.name, TRAINING.plan_id planId,PLAN.name planName,
                    TRAINING.status, TRAINING.date,
            (
-               select count(A.exercise_id)
-               from training_activities A
-                        left join join_training_activities TA on A.id = TA.activity_id
-               where TA.training_id = TRAINING.id
+           select sum(A.repeats)
+           from training_activities A
+                    left join join_training_activities TA on A.id = TA.activity_id
+           where TA.training_id = TRAINING.id
+           group by A.exercise_id
            ) doneRepeats,
            (
                select count(PE.exercise_id)

@@ -125,14 +125,17 @@ final class AddTrainingActivityContext implements Context
     /**
      * @When /^command app:activity:add is executed$/
      */
-    public function commandAppAddActivityIsExecuted()
+    public function commandAppAddActivityIsExecuted(?TableNode $node = null)
     {
-        $input = new ArrayInput($this->args);
+        $args = $node ? array_combine(['training', 'weight', 'repeats', 'exercise'], $node->getRow(1)) : $this->args;
+        $input = new ArrayInput($args);
         $output = new NullOutput();
 
         try {
             $this->command->run($input, $output);
         } catch (RuntimeException $e) {
+            dump($args);
+            dump($e->getMessage() . ' for ' . var_dump($args));
         }
     }
 

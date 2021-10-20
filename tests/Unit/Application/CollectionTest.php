@@ -7,6 +7,7 @@ use App\Application\Result;
 use JsonSerializable;
 use Unit\TestCase;
 
+/** @covers \App\Application\Collection */
 class CollectionTest extends TestCase
 {
     public function testConstructor(): void

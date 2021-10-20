@@ -41,3 +41,9 @@ schema:
 reset:
 	php bin/console doctrine:database:create
 	php bin/console doctrine:schema:update --force
+
+reproduce:
+	php bin/console app:plan:create FBW 100,5,6eac986a-debe-4e08-8989-7b4fdd94cbf0 120,3,6eac986a-debe-4e08-8989-7b4fdd94cbf0 --id plan-id
+	php bin/console app:training:create training-id 2020-01-01 plan-id --id training-id
+	php bin/console app:activity:add training-id 120 3 6eac986a-debe-4e08-8989-7b4fdd94cbf0
+	php bin/console app:training:list

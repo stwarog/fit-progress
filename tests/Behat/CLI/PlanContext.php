@@ -21,12 +21,12 @@ final class PlanContext implements Context
         private CreatePlan $command,
         private EntityManagerInterface $em
     ) {
-        $this->em->beginTransaction();
+//        $this->em->beginTransaction();
     }
 
     public function __destruct()
     {
-        $this->em->rollback();
+//        $this->em->rollback();
     }
 
     /**
