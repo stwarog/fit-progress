@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Unit\Infrastructure\Bus;
+namespace Unit\Shared\Infrastructure\Bus;
 
 use App\Application\CommandBus;
-use App\Infrastructure\Bus\MessengerCommandBus;
+use App\Shared\Infrastructure\Bus\MessengerCommandBus;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Messenger\MessageBusInterface;
 
-/** @covers \App\Infrastructure\Bus\MessengerCommandBus */
+/** @covers \App\Shared\Infrastructure\Bus\MessengerCommandBus */
 final class MessengerCommandBusTest extends TestCase
 {
     public function testConstructor(): void

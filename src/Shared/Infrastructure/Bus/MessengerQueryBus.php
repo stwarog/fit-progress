@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Infrastructure\Bus;
+namespace App\Shared\Infrastructure\Bus;
 
-use App\Application\Query;
-use App\Application\QueryBus;
-use App\Application\Result;
+use App\Shared\Application\Query\Query;
+use App\Shared\Application\Query\QueryBus;
+use App\Shared\Application\Query\Result;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Messenger\Stamp\HandledStamp;
 use Throwable;

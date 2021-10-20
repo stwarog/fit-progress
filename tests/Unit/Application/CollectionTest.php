@@ -2,8 +2,8 @@
 
 namespace Unit\Application;
 
-use App\Application\Collection;
-use App\Application\Result;
+use App\Shared\Application\Query\Collection;
+use App\Shared\Application\Query\Result;
 use JsonSerializable;
 use Unit\TestCase;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Application;
+namespace App\Shared\Application\Query;
 
 interface Result
 {

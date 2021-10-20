@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Unit\UI\Cli;
 
-use App\Application\Collection;
-use App\Application\QueryBus;
+use App\Shared\Application\Query\Collection;
+use App\Shared\Application\Query\QueryBus;
 use App\UI\Cli\FindTrainings;
 use Exception;
 use Symfony\Component\Console\Command\Command;

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Unit\Application\FindTrainings;
 
-use App\Application\Collection;
 use App\Application\FindTrainings\Handler;
 use App\Application\FindTrainings\Query;
 use App\Domain\Date;
@@ -13,6 +12,7 @@ use App\Domain\Status;
 use App\Domain\TrainingId;
 use App\Infrastructure\ReadModel\TrainingRepo;
 use App\Infrastructure\ReadModel\TrainingView;
+use App\Shared\Application\Query\Collection;
 use Unit\TestCase;
 
 /** @covers \App\Application\FindTrainings\Handler */

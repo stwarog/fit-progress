@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Application\FindTrainings;
 
-use App\Application\Collection;
 use App\Application\CommandHandler;
 use App\Infrastructure\ReadModel\TrainingRepo;
 use App\Infrastructure\ReadModel\TrainingView;
+use App\Shared\Application\Query\Collection;
 
 final class Handler implements CommandHandler
 {

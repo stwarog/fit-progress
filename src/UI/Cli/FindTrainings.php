@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\UI\Cli;
 
 use App\Application\FindTrainings\Query;
-use App\Application\QueryBus;
-use App\Application\Result;
+use App\Shared\Application\Query\QueryBus;
+use App\Shared\Application\Query\Result;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
