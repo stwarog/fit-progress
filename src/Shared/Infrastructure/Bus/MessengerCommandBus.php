@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Shared\Infrastructure\Bus;
 
-use App\Application\Command;
-use App\Application\CommandBus;
+use App\Shared\Application\Command\Command;
+use App\Shared\Application\Command\CommandBus;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Throwable;
 

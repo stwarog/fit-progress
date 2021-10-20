@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Cli;
 
 use App\Application\AddActivity\Command as AddActivityCommand;
-use App\Application\CommandBus;
+use App\Shared\Application\Command\CommandBus;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

@@ -1,13 +1,13 @@
 <?php
 
-namespace Unit\Application;
+namespace Unit\Shared\Application\Query;
 
 use App\Shared\Application\Query\Collection;
 use App\Shared\Application\Query\Result;
 use JsonSerializable;
 use Unit\TestCase;
 
-/** @covers \App\Application\Collection */
+/** @covers \App\Shared\Application\Query\Collection */
 class CollectionTest extends TestCase
 {
     public function testConstructor(): void

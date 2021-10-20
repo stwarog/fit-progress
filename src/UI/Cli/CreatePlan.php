@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\UI\Cli;
 
-use App\Application\CommandBus;
 use App\Application\CreatePlan\Command as CreatePlanCommand;
+use App\Shared\Application\Command\CommandBus;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

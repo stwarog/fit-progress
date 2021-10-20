@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Application\CreatePlan;
 
-use App\Application\Command as CommandMarker;
 use App\Domain\Name;
 use App\Domain\PlanId;
+use App\Shared\Application\Command\Command as CommandMarker;
 use JetBrains\PhpStorm\Immutable;
 
 #[Immutable]

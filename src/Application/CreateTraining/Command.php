@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Application\CreateTraining;
 
-use App\Application\Command as CommandMarker;
 use App\Domain\Date;
 use App\Domain\Name;
 use App\Domain\PlanId;
 use App\Domain\TrainingId;
+use App\Shared\Application\Command\Command as CommandMarker;
 use JetBrains\PhpStorm\Immutable;
 
 #[Immutable]

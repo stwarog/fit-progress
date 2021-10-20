@@ -2,9 +2,9 @@
 
 namespace App\Tests\Behat\CLI;
 
-use App\Application\CommandBus;
 use App\Application\CreatePlan\Command as CreatePlanCommand;
 use App\Application\CreateTraining\Command as CreateTrainingCommand;
+use App\Shared\Application\Command\CommandBus;
 use App\Tests\Behat\Utils\TableFromOutput;
 use App\UI\Cli\FindTrainings;
 use Behat\Behat\Context\Context;

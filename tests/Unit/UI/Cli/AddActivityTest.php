@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Unit\UI\Cli;
 
 use App\Application\AddActivity\Command as AddActivityCommand;
-use App\Application\CommandBus;
+use App\Shared\Application\Command\CommandBus;
 use App\UI\Cli\AddActivity;
 use Exception;
 use PHPUnit\Framework\TestCase;

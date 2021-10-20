@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Unit\UI\Cli;
 
-use App\Application\CommandBus;
 use App\Application\CreatePlan\Command as CreatePlanCommand;
+use App\Shared\Application\Command\CommandBus;
 use App\UI\Cli\CreatePlan;
 use Exception;
 use PHPUnit\Framework\TestCase;

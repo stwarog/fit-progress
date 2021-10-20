@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Unit\Shared\Infrastructure\Bus;
 
-use App\Application\CommandBus;
+use App\Shared\Application\Command\CommandBus;
 use App\Shared\Infrastructure\Bus\MessengerCommandBus;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Messenger\MessageBusInterface;
