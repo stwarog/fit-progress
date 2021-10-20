@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Application\CreatePlan;
+namespace App\Training\Application\Command\CreatePlan;
 
 use App\Domain\Factory\Activity as ActivityFactory;
 use App\Domain\Plan;

@@ -2,9 +2,9 @@
 
 namespace App\Tests\Behat\CLI;
 
-use App\Application\CreatePlan\Command as CreatePlanCommand;
 use App\Domain\Training;
 use App\Shared\Application\Command\CommandBus;
+use App\Training\Application\Command\CreatePlan\Command as CreatePlanCommand;
 use App\Training\UI\Cli\CreateTraining;
 use Behat\Behat\Context\Context;
 use Doctrine\ORM\EntityManagerInterface;

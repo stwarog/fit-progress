@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Training\UI\Cli;
 
-use App\Application\CreateTraining\Command as CreateTrainingCommand;
 use App\Shared\Application\Command\CommandBus;
+use App\Training\Application\Command\CreateTraining\Command as CreateTrainingCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

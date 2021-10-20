@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Unit\Training\Application\Command\CreateTraining;
 
-use App\Application\CreateTraining\Command;
+use App\Training\Application\Command\CreateTraining\Command;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \App\Application\CreateTraining\Command */
+/** @covers \App\Training\Application\Command\CreateTraining\Command */
 final class CommandTest extends TestCase
 {
     public function testConstructor(): void

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Application\CreateTraining;
+namespace App\Training\Application\Command\CreateTraining;
 
 use App\Domain\Repository\PlanById;
 use App\Domain\Repository\TrainingStore;

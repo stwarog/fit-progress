@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Application\AddActivity;
+namespace App\Training\Application\Command\AddActivity;
 
 use App\Domain\Catalog\ExerciseId;
 use App\Domain\Repeats;

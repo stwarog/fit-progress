@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Unit\Training\Application\Command\AddActivity;
 
-use App\Application\AddActivity\Command;
-use App\Application\AddActivity\Handler;
 use App\Domain\Catalog\ExerciseById;
 use App\Domain\Exceptions\NotFoundException;
 use App\Domain\Name;
@@ -13,9 +11,11 @@ use App\Domain\Repository\PlanById;
 use App\Domain\Repository\TrainingById;
 use App\Domain\Repository\TrainingStore;
 use App\Domain\Training;
+use App\Training\Application\Command\AddActivity\Command;
+use App\Training\Application\Command\AddActivity\Handler;
 use Unit\TestCase;
 
-/** @covers \App\Application\AddActivity\Handler */
+/** @covers \App\Training\Application\Command\AddActivity\Handler */
 final class HandlerTest extends TestCase
 {
     public function testInvoke(): void

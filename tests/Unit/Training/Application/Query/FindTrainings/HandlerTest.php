@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Unit\Training\Application\Query\FindTrainings;
 
-use App\Application\FindTrainings\Handler;
-use App\Application\FindTrainings\Query;
 use App\Domain\Date;
 use App\Domain\Name;
 use App\Domain\Status;
@@ -13,9 +11,11 @@ use App\Domain\TrainingId;
 use App\Infrastructure\ReadModel\TrainingRepo;
 use App\Infrastructure\ReadModel\TrainingView;
 use App\Shared\Application\Query\Collection;
+use App\Training\Application\Query\FindTrainings\Handler;
+use App\Training\Application\Query\FindTrainings\Query;
 use Unit\TestCase;
 
-/** @covers \App\Application\FindTrainings\Handler */
+/** @covers \App\Training\Application\Query\FindTrainings\Handler */
 final class HandlerTest extends TestCase
 {
     public function testInvoke(): void

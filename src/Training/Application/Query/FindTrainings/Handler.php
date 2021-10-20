@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Application\FindTrainings;
+namespace App\Training\Application\Query\FindTrainings;
 
 use App\Infrastructure\ReadModel\TrainingRepo;
 use App\Infrastructure\ReadModel\TrainingView;

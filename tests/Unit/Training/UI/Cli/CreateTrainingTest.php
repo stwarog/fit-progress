@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Unit\Training\UI\Cli;
 
-use App\Application\CreateTraining\Command as CreateTrainingCommand;
 use App\Shared\Application\Command\CommandBus;
+use App\Training\Application\Command\CreateTraining\Command as CreateTrainingCommand;
 use App\Training\UI\Cli\CreateTraining;
 use Exception;
 use PHPUnit\Framework\TestCase;

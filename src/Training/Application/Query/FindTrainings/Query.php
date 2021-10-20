@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Application\FindTrainings;
+namespace App\Training\Application\Query\FindTrainings;
 
 use App\Shared\Application\Query\Query as QueryMarker;
 

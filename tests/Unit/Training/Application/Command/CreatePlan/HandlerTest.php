@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Unit\Training\Application\Command\CreatePlan;
 
-use App\Application\CreatePlan\Command;
-use App\Application\CreatePlan\Handler;
 use App\Domain\Factory\Activity as ActivityFactory;
 use App\Domain\Plan;
 use App\Domain\PlanId;
 use App\Domain\Repository\PlanStore;
+use App\Training\Application\Command\CreatePlan\Command;
+use App\Training\Application\Command\CreatePlan\Handler;
 use Unit\TestCase;
 
-/** @covers \App\Application\CreatePlan\Handler */
+/** @covers \App\Training\Application\Command\CreatePlan\Handler */
 final class HandlerTest extends TestCase
 {
     public function testInvoke(): void

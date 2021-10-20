@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Unit\Training\UI\Cli;
 
-use App\Application\AddActivity\Command as AddActivityCommand;
 use App\Shared\Application\Command\CommandBus;
+use App\Training\Application\Command\AddActivity\Command as AddActivityCommand;
 use App\Training\UI\Cli\AddActivity;
 use Exception;
 use PHPUnit\Framework\TestCase;

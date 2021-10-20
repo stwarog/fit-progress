@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Unit\Training\Application\Command\CreateTraining;
 
-use App\Application\CreateTraining\Command;
-use App\Application\CreateTraining\Handler;
 use App\Domain\Repository\TrainingStore;
 use App\Domain\Training;
 use App\Domain\TrainingId;
+use App\Training\Application\Command\CreateTraining\Command;
+use App\Training\Application\Command\CreateTraining\Handler;
 use Unit\TestCase;
 
-/** @covers \App\Application\CreateTraining\Handler */
+/** @covers \App\Training\Application\Command\CreateTraining\Handler */
 final class HandlerTest extends TestCase
 {
     public function testInvoke(): void
