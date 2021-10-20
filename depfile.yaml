@@ -18,10 +18,9 @@ layers:
   - name: UI
     collectors:
       - type: className
-        regex: .*UI.*
+        regex: \bUI\b
 ruleset:
   Domain:
-
   Infrastructure:
     - Domain
     - Application

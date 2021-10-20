@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Unit\Domain\Catalog;
 
 use App\Domain\Catalog\ExerciseId;
-use App\Domain\Shared\AbstractId;
+use App\Shared\Domain\AbstractId;
 use PHPUnit\Framework\TestCase;
 
 /** @covers \App\Domain\Catalog\ExerciseId */
