@@ -27,8 +27,8 @@ Feature:
       | id                                   | name                         | status  | date       | planId                               | planName        | doneRepeats | plannedRepeats | doneExercises | plannedExercises | liftedWeight |
       +--------------------------------------+------------------------------+---------+------------+--------------------------------------+-----------------+-------------+----------------+---------------+------------------+--------------+
       | 91c71952-71c8-4a12-9168-7c5cac8d4711 | Training with no plan        | planned | 2021-10-10 |                                      |                 | 0           | 0              | 0             | 0                | 0            |
-      | trainingId                           | Full body plan               | planned | 2021-02-27 | planId                               | planId          | 0           | 3              | 0             | 3                | 0            |
-      | d528cf56-dd82-4dfe-89c1-a535c9699a7d | Full body plan (not started) | planned | 2021-02-02 | 569c3f90-987f-459d-ae50-37f6d1a707d3 | Full body plan  | 0           | 2              | 0             | 2                | 0            |
+      | trainingId                           | Full body plan               | planned | 2021-02-27 | planId                               | planId          | 0           | 25             | 0             | 3                | 0            |
+      | d528cf56-dd82-4dfe-89c1-a535c9699a7d | Full body plan (not started) | planned | 2021-02-02 | 569c3f90-987f-459d-ae50-37f6d1a707d3 | Full body plan  | 0           | 35             | 0             | 2                | 0            |
       +--------------------------------------+------------------------------+---------+------------+--------------------------------------+-----------------+-------------+----------------+---------------+------------------+--------------+
       """
 
@@ -43,8 +43,8 @@ Feature:
       | id                                   | name                         | status  | date       | planId                               | planName        | doneRepeats | plannedRepeats | doneExercises | plannedExercises | liftedWeight |
       +--------------------------------------+------------------------------+---------+------------+--------------------------------------+-----------------+-------------+----------------+---------------+------------------+--------------+
       | 91c71952-71c8-4a12-9168-7c5cac8d4711 | Training with no plan        | planned | 2021-10-10 |                                      |                 | 0           | 0              | 0             | 0                | 0            |
-      | trainingId                           | Full body plan               | started | 2021-02-27 | planId                               | planId          | 2           | 3              | 1             | 3                | 300          |
-      | d528cf56-dd82-4dfe-89c1-a535c9699a7d | Full body plan (not started) | planned | 2021-02-02 | 569c3f90-987f-459d-ae50-37f6d1a707d3 | Full body plan  | 0           | 2              | 0             | 2                | 0            |
+      | trainingId                           | Full body plan               | started | 2021-02-27 | planId                               | planId          | 2           | 25             | 1             | 3                | 300          |
+      | d528cf56-dd82-4dfe-89c1-a535c9699a7d | Full body plan (not started) | planned | 2021-02-02 | 569c3f90-987f-459d-ae50-37f6d1a707d3 | Full body plan  | 0           | 35             | 0             | 2                | 0            |
       +--------------------------------------+------------------------------+---------+------------+--------------------------------------+-----------------+-------------+----------------+---------------+------------------+--------------+
       """
 
