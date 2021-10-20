@@ -8,11 +8,11 @@ use App\Domain\Date;
 use App\Domain\Name;
 use App\Domain\Status;
 use App\Domain\TrainingId;
-use App\Infrastructure\ReadModel\TrainingRepo;
-use App\Infrastructure\ReadModel\TrainingView;
 use App\Shared\Application\Query\Collection;
 use App\Training\Application\Query\FindTrainings\Handler;
 use App\Training\Application\Query\FindTrainings\Query;
+use App\Training\Infrastructure\ReadModel\TrainingRepo;
+use App\Training\Infrastructure\ReadModel\TrainingView;
 use Unit\TestCase;
 
 /** @covers \App\Training\Application\Query\FindTrainings\Handler */

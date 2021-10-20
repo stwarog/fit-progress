@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Infrastructure\ReadModel\MySql;
+namespace App\Training\Infrastructure\ReadModel\MySql;
 
-use App\Infrastructure\ReadModel\TrainingRepo as ReadModelTrainingRepo;
-use App\Infrastructure\ReadModel\TrainingView;
+use App\Training\Infrastructure\ReadModel\TrainingRepo as ReadModelTrainingRepo;
+use App\Training\Infrastructure\ReadModel\TrainingView;
 use Doctrine\ORM\EntityManagerInterface;
 
 final class TrainingRepo implements ReadModelTrainingRepo

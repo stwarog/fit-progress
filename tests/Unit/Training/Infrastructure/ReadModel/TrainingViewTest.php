@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Unit\Infrastructure\ReadModel;
+namespace Unit\Training\Infrastructure\ReadModel;
 
 use App\Domain\Date;
 use App\Domain\Name;
@@ -10,11 +10,11 @@ use App\Domain\PlanId;
 use App\Domain\Status;
 use App\Domain\TrainingId;
 use App\Domain\Weight;
-use App\Infrastructure\ReadModel\TrainingView;
+use App\Training\Infrastructure\ReadModel\TrainingView;
 use JsonSerializable;
 use Unit\TestCase;
 
-/** @covers \App\Infrastructure\ReadModel\TrainingView */
+/** @covers \App\Training\Infrastructure\ReadModel\TrainingView */
 final class TrainingViewTest extends TestCase
 {
     public function testConstructor(): TrainingView

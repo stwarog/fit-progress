@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Unit\Infrastructure\Repository;
+namespace Unit\Training\Infrastructure\Repository;
 
 use App\Domain\Catalog\ExerciseById;
 use App\Domain\Catalog\ExerciseId;
-use App\Infrastructure\Repository\InMemoryExercise;
+use App\Training\Infrastructure\Repository\InMemoryExercise;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \App\Infrastructure\Repository\InMemoryExercise */
+/** @covers \App\Training\Infrastructure\Repository\InMemoryExercise */
 final class InMemoryExerciseTest extends TestCase
 {
     public function testConstructor(): InMemoryExercise

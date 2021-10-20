@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Infrastructure\ReadModel;
+namespace App\Training\Infrastructure\ReadModel;
 
 use App\Domain\Date;
 use App\Domain\Name;

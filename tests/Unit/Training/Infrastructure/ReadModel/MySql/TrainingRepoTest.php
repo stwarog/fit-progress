@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Unit\Infrastructure\ReadModel\MySql;
+namespace Unit\Training\Infrastructure\ReadModel\MySql;
 
-use App\Infrastructure\ReadModel\MySql\TrainingRepo;
+use App\Training\Infrastructure\ReadModel\MySql\TrainingRepo;
 use Doctrine\DBAL\Driver\Result;
 use Doctrine\DBAL\Portability\Connection;
 use Doctrine\ORM\EntityManagerInterface;
 use Unit\TestCase;
 
-/** @covers \App\Infrastructure\ReadModel\MySql\TrainingRepo */
+/** @covers \App\Training\Infrastructure\ReadModel\MySql\TrainingRepo */
 final class TrainingRepoTest extends TestCase
 {
     public function testConstructor(): void
     {
         $sut = new TrainingRepo($this->createMock(EntityManagerInterface::class));
-        $this->assertInstanceOf(\App\Infrastructure\ReadModel\TrainingRepo::class, $sut);
+        $this->assertInstanceOf(\App\Training\Infrastructure\ReadModel\TrainingRepo::class, $sut);
     }
 
     public function testFindAll(): void
