@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Unit\UI\Cli;
+namespace Unit\Training\UI\Cli;
 
 use App\Shared\Application\Query\Collection;
 use App\Shared\Application\Query\QueryBus;
-use App\UI\Cli\FindTrainings;
+use App\Training\UI\Cli\FindTrainings;
 use Exception;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\NullOutput;
 use Unit\TestCase;
 
-/** @covers \App\UI\Cli\FindTrainings */
+/** @covers \App\Training\UI\Cli\FindTrainings */
 final class FindTrainingsTest extends TestCase
 {
     public function testConstructor(): void

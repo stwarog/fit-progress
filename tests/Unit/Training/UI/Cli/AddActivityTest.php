@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Unit\UI\Cli;
+namespace Unit\Training\UI\Cli;
 
 use App\Application\AddActivity\Command as AddActivityCommand;
 use App\Shared\Application\Command\CommandBus;
-use App\UI\Cli\AddActivity;
+use App\Training\UI\Cli\AddActivity;
 use Exception;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-/** @covers \App\UI\Cli\AddActivity */
+/** @covers \App\Training\UI\Cli\AddActivity */
 final class AddActivityTest extends TestCase
 {
     public function testConstructor(): void

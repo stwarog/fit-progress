@@ -6,7 +6,7 @@ use App\Application\CreatePlan\Command as CreatePlanCommand;
 use App\Application\CreateTraining\Command as CreateTrainingCommand;
 use App\Shared\Application\Command\CommandBus;
 use App\Tests\Behat\Utils\TableFromOutput;
-use App\UI\Cli\FindTrainings;
+use App\Training\UI\Cli\FindTrainings;
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;

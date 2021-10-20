@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\UI\Cli;
+namespace App\Training\UI\Cli;
 
 use App\Application\CreatePlan\Command as CreatePlanCommand;
 use App\Shared\Application\Command\CommandBus;

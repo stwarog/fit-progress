@@ -11,7 +11,7 @@ use App\Domain\Repository\TrainingById;
 use App\Domain\Repository\TrainingStore;
 use App\Domain\Training;
 use App\Domain\TrainingId;
-use App\UI\Cli\AddActivity;
+use App\Training\UI\Cli\AddActivity;
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;
 use Doctrine\ORM\EntityManagerInterface;

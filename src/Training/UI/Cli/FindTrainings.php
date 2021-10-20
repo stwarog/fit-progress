@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\UI\Cli;
+namespace App\Training\UI\Cli;
 
 use App\Application\FindTrainings\Query;
 use App\Shared\Application\Query\QueryBus;

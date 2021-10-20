@@ -4,7 +4,7 @@ namespace App\Tests\Behat\CLI;
 
 use App\Domain\Exercise;
 use App\Domain\Plan;
-use App\UI\Cli\CreatePlan;
+use App\Training\UI\Cli\CreatePlan;
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;
 use Doctrine\ORM\EntityManagerInterface;
