@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Unit\Training\Infrastructure\ReadModel\MySql;
 
+use App\Training\Domain\TrainingId;
 use App\Training\Infrastructure\ReadModel\MySql\TrainingRepo;
 use Doctrine\DBAL\Driver\Result;
 use Doctrine\DBAL\Portability\Connection;
@@ -19,7 +20,7 @@ final class TrainingRepoTest extends TestCase
         $this->assertInstanceOf(\App\Training\Infrastructure\ReadModel\TrainingRepo::class, $sut);
     }
 
-    public function testFindAll(): void
+    public function testFindAll(): TrainingRepo
     {
         // Given data returned by Entity Manager
         $fetchedData = [
@@ -77,6 +78,34 @@ final class TrainingRepoTest extends TestCase
             $this->assertEquals($expected['plannedExercises'], $actual->plannedExercises);
             $this->assertEquals($expected['liftedWeight'], $actual->liftedWeight);
         }
+
+        return $sut;
+    }
+
+    /** @depends testFindAll */
+    public function testFindOneExistingViewShouldReturnOneResult(TrainingRepo $sut): void
+    {
+        // Given a Training that I want to fetch
+        $trainingId = new TrainingId('7782-2661-3884-9811');
+
+        // When find one is called with Training that exists in findAll method
+        $actual = $sut->findOne($trainingId);
+
+        // Then View should be returned
+        $this->assertEquals($trainingId, $actual->id);
+    }
+
+    /** @depends testFindAll */
+    public function testFindOneNotExistingViewShouldReturnNull(TrainingRepo $sut): void
+    {
+        // Given a Training that I want to fetch
+        $trainingId = new TrainingId('not-existing-one');
+
+        // When find one is called with Training that exists in findAll method
+        $actual = $sut->findOne($trainingId);
+
+        // Then View should not be returned
+        $this->assertNull($actual);
     }
 
     private function stubConnection(array $fetchAllAssociative): Connection
