@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Training\Domain;
 
 use App\Shared\Domain\Exceptions\NotFoundException;
+use App\Training\Domain\Exceptions\InvalidStatus;
 use App\Training\Domain\Repository\PlanById;
 use Countable as Countable;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -18,6 +19,7 @@ final class Training implements Countable
     private string $date;
     private ?string $planId;
     private string $status;
+    private ?string $dateStarted;
 
     private Collection $activities;
 
@@ -69,5 +71,34 @@ final class Training implements Countable
     public function getStatus(): Status
     {
         return new Status($this->status);
+    }
+
+    public function start(): void
+    {
+        if (!in_array($this->status, [Status::PLANNED, Status::STARTED])) {
+            throw new InvalidStatus('Invalid Training status');
+        }
+
+        $this->status = (string)(new Status('started'));
+        $this->dateStarted = (string)DateTime::now();
+    }
+
+    public function getDateStarted(): ?DateTime
+    {
+        return !empty($this->dateStarted) ? new DateTime($this->dateStarted) : null;
+    }
+
+    public function end(): void
+    {
+        $this->status = (string)(new Status('ended'));
+    }
+
+    public function skip(): void
+    {
+        if ($this->status !== Status::PLANNED) {
+            throw new InvalidStatus('Invalid Training status');
+        }
+
+        $this->status = (string)(new Status('skipped'));
     }
 }

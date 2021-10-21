@@ -18,6 +18,9 @@ App\Training\Domain\Training:
     date:
       type: string
       nullable: true
+    dateStarted:
+      type: string
+      nullable: true
     planId:
       type: string
       length: 50

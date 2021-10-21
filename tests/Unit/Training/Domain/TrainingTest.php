@@ -11,6 +11,8 @@ use App\Training\Domain\Catalog\Exercise;
 use App\Training\Domain\Catalog\ExerciseById;
 use App\Training\Domain\Catalog\ExerciseId;
 use App\Training\Domain\Date;
+use App\Training\Domain\DateTime;
+use App\Training\Domain\Exceptions\InvalidStatus;
 use App\Training\Domain\Name;
 use App\Training\Domain\Plan;
 use App\Training\Domain\PlanId;
@@ -40,8 +42,9 @@ final class TrainingTest extends TestCase
         return $sut;
     }
 
-    public function testTrainingInitiallyPlanned(): void
+    public function testTrainingInitiallyPlanned(): Training
     {
+        // When Given Training
         $sut = new Training(
             new TrainingId('value'),
             new Name('some name'),
@@ -49,9 +52,107 @@ final class TrainingTest extends TestCase
             new Date('2021-09-01')
         );
 
+        // Then it should be in planned Status
         $expected = new Status('planned');
         $actual = $sut->getStatus();
         $this->assertEquals($expected, $actual);
+
+        // And no started date should be present
+        $this->assertEmpty($sut->getDateStarted());
+
+        return $sut;
+    }
+
+    /** @depends testTrainingInitiallyPlanned */
+    public function testStartOnPlannedTraining(Training $sut): Training
+    {
+        // Given Planned Training
+
+        // When started
+        $sut->start();
+
+        // Then status should change and start date
+        $actualStatus = $sut->getStatus();
+        $actualDateStarted = $sut->getDateStarted();
+
+        $this->assertEquals(new Status('started'), $actualStatus);
+        $this->assertEquals(DateTime::now(), $actualDateStarted);
+
+        return $sut;
+    }
+
+    /** @depends testStartOnPlannedTraining */
+    public function testStartOnAlreadyStartedTraining(Training $sut): void
+    {
+        // Given Started Training
+
+        // When started again
+        $sut->start();
+
+        // Then status should still be started
+        $actualStatus = $sut->getStatus();
+
+        $this->assertEquals(new Status('started'), $actualStatus);
+    }
+
+    public function testStartOnEndedTraining(): void
+    {
+        // Expect
+        $this->expectException(InvalidStatus::class);
+        $this->expectExceptionMessage('Invalid Training status');
+
+        // Given Ended | Skipped Training
+        $sut = new Training(
+            new TrainingId('value'),
+            new Name('some name'),
+            $this->createMock(PlanById::class),
+            new Date('2021-09-01'),
+        );
+
+        $sut->end();
+
+        // When started again
+        $sut->start();
+    }
+
+    public function testStartOnSkippedTraining(): void
+    {
+        // Expect
+        $this->expectException(InvalidStatus::class);
+        $this->expectExceptionMessage('Invalid Training status');
+
+        // Given Ended | Skipped Training
+        $sut = new Training(
+            new TrainingId('value'),
+            new Name('some name'),
+            $this->createMock(PlanById::class),
+            new Date('2021-09-01'),
+        );
+
+        $sut->skip();
+
+        // When started again
+        $sut->start();
+    }
+
+    public function testSkipOnStartedTraining(): void
+    {
+        // Expect
+        $this->expectException(InvalidStatus::class);
+        $this->expectExceptionMessage('Invalid Training status');
+
+        // Given Ended | Skipped Training
+        $sut = new Training(
+            new TrainingId('value'),
+            new Name('some name'),
+            $this->createMock(PlanById::class),
+            new Date('2021-09-01'),
+        );
+
+        $sut->start();
+
+        // When started again
+        $sut->skip();
     }
 
     public function testConstructorWithoutOptional(): void
