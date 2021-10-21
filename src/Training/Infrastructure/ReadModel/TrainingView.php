@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Training\Infrastructure\ReadModel;
 
+use App\Shared\Infrastructure\ReadModel\View;
 use App\Training\Domain\Date;
 use App\Training\Domain\Name;
 use App\Training\Domain\PlanId;
@@ -11,9 +12,8 @@ use App\Training\Domain\Status;
 use App\Training\Domain\TrainingId;
 use App\Training\Domain\Weight;
 use JetBrains\PhpStorm\Pure;
-use JsonSerializable;
 
-final class TrainingView implements JsonSerializable
+final class TrainingView implements View
 {
     public string $id;
     public string $name;

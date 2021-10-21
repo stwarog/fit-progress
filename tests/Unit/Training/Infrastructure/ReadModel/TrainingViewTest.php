@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Unit\Training\Infrastructure\ReadModel;
 
+use App\Shared\Infrastructure\ReadModel\View;
 use App\Training\Domain\Date;
 use App\Training\Domain\Name;
 use App\Training\Domain\PlanId;
@@ -49,6 +50,7 @@ final class TrainingViewTest extends TestCase
 
         // Then
         $this->assertInstanceOf(JsonSerializable::class, $sut);
+        $this->assertInstanceOf(View::class, $sut);
 
         return $sut;
     }
