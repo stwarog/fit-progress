@@ -14,3 +14,7 @@ App\Training\Domain\Exercise:
     exerciseId:
       type: string
       length: 50
+    position:
+      type: bigint
+      options:
+        default: 0

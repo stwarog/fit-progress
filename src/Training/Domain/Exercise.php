@@ -12,6 +12,7 @@ final class Exercise
 {
     private int $repeats;
     private float $weight;
+    private int $position;
 
     public function __construct(
         private ExerciseId $id,
@@ -25,5 +26,11 @@ final class Exercise
         }
         $this->repeats = $repeats->getValue();
         $this->weight = $weight->getValue();
+        $this->position = time();
+    }
+
+    public function getPosition(): int
+    {
+        return $this->position;
     }
 }

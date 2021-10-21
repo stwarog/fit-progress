@@ -37,6 +37,7 @@ final class ExerciseTest extends TestCase
 
         // Then
         $this->assertInstanceOf(Exercise::class, $sut);
+        $this->assertNotEmpty($sut->getPosition());
     }
 
     public function testConstructorExerciseNotFoundThrowsException(): void
