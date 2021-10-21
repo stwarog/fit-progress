@@ -15,7 +15,7 @@ use App\Training\Domain\Repeats;
 use App\Training\Domain\Weight;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \App\Domain\Exercise */
+/** @covers \App\Training\Domain\Exercise */
 final class ExerciseTest extends TestCase
 {
     public function testConstructor(): void

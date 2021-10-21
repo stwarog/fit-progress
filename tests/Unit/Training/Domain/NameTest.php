@@ -7,7 +7,7 @@ namespace Unit\Training\Domain;
 use App\Training\Domain\Name;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \App\Domain\Name */
+/** @covers \App\Training\Domain\Name */
 final class NameTest extends TestCase
 {
     public function testConstructor(): Name

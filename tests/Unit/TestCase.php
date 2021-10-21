@@ -15,7 +15,6 @@ use App\Training\Domain\Plan;
 use App\Training\Domain\PlanId;
 use App\Training\Domain\Repeats;
 use App\Training\Domain\Repository\PlanById;
-use App\Training\Domain\TrainingId;
 use App\Training\Domain\Weight;
 
 abstract class TestCase extends \PHPUnit\Framework\TestCase
@@ -69,7 +68,6 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     {
         return new Activity(
             ActivityId::random(),
-            TrainingId::random(),
             new Weight(20),
             new Repeats(10),
             ExerciseId::random(),

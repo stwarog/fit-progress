@@ -9,7 +9,7 @@ use Generator;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \App\Domain\Date */
+/** @covers \App\Training\Domain\Date */
 final class DateTest extends TestCase
 {
     public function testConstructor(): void

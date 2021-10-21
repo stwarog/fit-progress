@@ -8,7 +8,7 @@ use App\Training\Domain\Status;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \App\Domain\Status */
+/** @covers \App\Training\Domain\Status */
 final class StatusTest extends TestCase
 {
     public function testConstructor(): Status

@@ -23,7 +23,7 @@ use App\Training\Domain\Weight;
 use Countable;
 use Unit\TestCase;
 
-/** @covers \App\Domain\Training */
+/** @covers \App\Training\Domain\Training */
 final class TrainingTest extends TestCase
 {
     public function testConstructor(): Training

@@ -9,7 +9,7 @@ use App\Training\Domain\Catalog\ExerciseId;
 use App\Training\Domain\Name;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \App\Domain\Catalog\Exercise */
+/** @covers \App\Training\Domain\Catalog\Exercise */
 final class ExerciseTest extends TestCase
 {
     public function testConstructor(): void

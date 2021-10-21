@@ -8,7 +8,7 @@ use App\Shared\Domain\AbstractId;
 use App\Training\Domain\Catalog\ExerciseId;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \App\Domain\Catalog\ExerciseId */
+/** @covers \App\Training\Domain\Catalog\ExerciseId */
 final class ExerciseIdTest extends TestCase
 {
     public function testConstructor(): ExerciseId

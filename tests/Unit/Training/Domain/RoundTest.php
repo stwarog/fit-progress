@@ -9,7 +9,7 @@ use Generator;
 use OutOfBoundsException;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \App\Domain\Round */
+/** @covers \App\Training\Domain\Round */
 final class RoundTest extends TestCase
 {
     public function testConstructor(): void

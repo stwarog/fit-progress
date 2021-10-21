@@ -10,7 +10,7 @@ use App\Training\Domain\PlanId;
 use InvalidArgumentException;
 use Unit\TestCase;
 
-/** @covers \App\Domain\Plan */
+/** @covers \App\Training\Domain\Plan */
 final class PlanTest extends TestCase
 {
     public function testConstructor(): void

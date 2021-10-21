@@ -9,7 +9,7 @@ use Generator;
 use OutOfBoundsException;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \App\Domain\Weight */
+/** @covers \App\Training\Domain\Weight */
 final class WeightTest extends TestCase
 {
     public function testConstructor(): Weight

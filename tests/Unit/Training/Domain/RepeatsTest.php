@@ -9,7 +9,7 @@ use Generator;
 use OutOfBoundsException;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \App\Domain\Repeats */
+/** @covers \App\Training\Domain\Repeats */
 final class RepeatsTest extends TestCase
 {
     public function testConstructor(): Repeats

@@ -7,7 +7,7 @@ namespace Unit\Training\Domain;
 use App\Training\Domain\TrainingId;
 use PHPUnit\Framework\TestCase;
 
-/** @covers \App\Domain\TrainingId */
+/** @covers \App\Training\Domain\TrainingId */
 final class TrainingIdTest extends TestCase
 {
     public function testConstructor(): TrainingId
