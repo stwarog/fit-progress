@@ -11,8 +11,8 @@ use App\Training\Domain\Date;
 use App\Training\Domain\Name;
 use App\Training\Domain\Status;
 use App\Training\Domain\TrainingId;
+use App\Training\Infrastructure\ReadModel\TrainingRepo;
 use App\Training\Infrastructure\ReadModel\TrainingView;
-use App\Training\Infrastructure\ReadModel\TrainingViewRepo;
 use Unit\TestCase;
 
 /** @covers \App\Training\Application\Query\FindTrainings\Handler */
@@ -24,7 +24,7 @@ final class HandlerTest extends TestCase
         $query = new Query();
 
         // And handler
-        $repo = $this->createMock(TrainingViewRepo::class);
+        $repo = $this->createMock(TrainingRepo::class);
         $repo->method('findAll')->willReturn([
             new TrainingView(
                 new TrainingId('9561-6309-3822-4534'),

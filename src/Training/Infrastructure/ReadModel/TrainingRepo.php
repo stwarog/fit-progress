@@ -6,7 +6,7 @@ namespace App\Training\Infrastructure\ReadModel;
 
 use App\Training\Domain\TrainingId;
 
-interface TrainingViewRepo
+interface TrainingRepo
 {
     /** @return array<TrainingView> */
     public function findAll(): array;
