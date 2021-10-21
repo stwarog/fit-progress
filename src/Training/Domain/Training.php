@@ -54,8 +54,8 @@ final class Training implements Countable
 
     public function add(Activity $exercise): void
     {
+        $this->start();
         $this->activities->add($exercise);
-        $this->status = (string)(new Status(Status::STARTED));
     }
 
     public function count(): int
