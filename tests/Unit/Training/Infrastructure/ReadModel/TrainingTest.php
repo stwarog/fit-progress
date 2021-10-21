@@ -11,14 +11,14 @@ use App\Training\Domain\PlanId;
 use App\Training\Domain\Status;
 use App\Training\Domain\TrainingId;
 use App\Training\Domain\Weight;
-use App\Training\Infrastructure\ReadModel\TrainingView;
+use App\Training\Infrastructure\ReadModel\Training;
 use JsonSerializable;
 use Unit\TestCase;
 
-/** @covers \App\Training\Infrastructure\ReadModel\TrainingView */
-final class TrainingViewTest extends TestCase
+/** @covers \App\Training\Infrastructure\ReadModel\Training */
+final class TrainingTest extends TestCase
 {
-    public function testConstructor(): TrainingView
+    public function testConstructor(): Training
     {
         // Given Value Objects needed to create a View
         $id = TrainingId::random();
@@ -34,7 +34,7 @@ final class TrainingViewTest extends TestCase
         $totalWeightLifted = new Weight(1000);
 
         // When new instance is created
-        $sut = new TrainingView(
+        $sut = new Training(
             $id,
             $name,
             $status,
@@ -56,7 +56,7 @@ final class TrainingViewTest extends TestCase
     }
 
     /** @depends testConstructor */
-    public function testSerializeAndDeserialize(TrainingView $sut): void
+    public function testSerializeAndDeserialize(Training $sut): void
     {
         $serialize = serialize($sut);
         $normalize = unserialize($serialize);
@@ -64,9 +64,9 @@ final class TrainingViewTest extends TestCase
     }
 
     /** @depends testConstructor */
-    public function testDenormalize(TrainingView $sut): void
+    public function testDenormalize(Training $sut): void
     {
         $normalized = $sut->normalize();
-        $this->assertEquals($sut, TrainingView::denormalize($normalized));
+        $this->assertEquals($sut, Training::denormalize($normalized));
     }
 }

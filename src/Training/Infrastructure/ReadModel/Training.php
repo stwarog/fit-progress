@@ -13,7 +13,7 @@ use App\Training\Domain\TrainingId;
 use App\Training\Domain\Weight;
 use JetBrains\PhpStorm\Pure;
 
-final class TrainingView implements View
+final class Training implements View
 {
     public string $id;
     public string $name;
@@ -75,7 +75,7 @@ final class TrainingView implements View
         ];
     }
 
-    public static function denormalize(array $data): TrainingView
+    public static function denormalize(array $data): Training
     {
         return new self(
             new TrainingId($data['id']),

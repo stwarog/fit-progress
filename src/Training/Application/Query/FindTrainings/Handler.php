@@ -6,8 +6,8 @@ namespace App\Training\Application\Query\FindTrainings;
 
 use App\Shared\Application\Command\CommandHandler;
 use App\Shared\Application\Query\Collection;
+use App\Training\Infrastructure\ReadModel\Training;
 use App\Training\Infrastructure\ReadModel\TrainingRepo;
-use App\Training\Infrastructure\ReadModel\TrainingView;
 
 final class Handler implements CommandHandler
 {
@@ -17,7 +17,7 @@ final class Handler implements CommandHandler
 
     /**
      * @param Query $query
-     * @return Collection<TrainingView>
+     * @return Collection<Training>
      */
     public function __invoke(Query $query): Collection
     {

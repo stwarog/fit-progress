@@ -8,8 +8,8 @@ use App\Training\Domain\TrainingId;
 
 interface TrainingRepo
 {
-    /** @return array<TrainingView> */
+    /** @return array<Training> */
     public function findAll(): array;
 
-    public function findOne(TrainingId $trainingId): ?TrainingView;
+    public function findOne(TrainingId $trainingId): ?Training;
 }

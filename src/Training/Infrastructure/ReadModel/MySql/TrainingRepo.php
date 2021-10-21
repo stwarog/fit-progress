@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Training\Infrastructure\ReadModel\MySql;
 
 use App\Training\Domain\TrainingId;
+use App\Training\Infrastructure\ReadModel\Training;
 use App\Training\Infrastructure\ReadModel\TrainingRepo as ReadModelTrainingRepo;
-use App\Training\Infrastructure\ReadModel\TrainingView;
 use Doctrine\ORM\EntityManagerInterface;
 
 final class TrainingRepo implements ReadModelTrainingRepo
@@ -67,14 +67,14 @@ final class TrainingRepo implements ReadModelTrainingRepo
 
         $e = $c->executeQuery($sql);
 
-        return array_map(fn(array $t) => TrainingView::denormalize($t), $e->fetchAllAssociative());
+        return array_map(fn(array $t) => Training::denormalize($t), $e->fetchAllAssociative());
     }
 
-    public function findOne(TrainingId $trainingId): ?TrainingView
+    public function findOne(TrainingId $trainingId): ?Training
     {
         # todo: improve it ;)
         $results = $this->findAll();
-        $match = array_filter($results, fn(TrainingView $t) => $t->id === (string)$trainingId);
+        $match = array_filter($results, fn(Training $t) => $t->id === (string)$trainingId);
 
         if (empty($match)) {
             return null;
