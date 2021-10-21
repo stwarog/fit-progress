@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Training\Infrastructure\ReadModel\MySql;
 
 use App\Training\Domain\TrainingId;
-use App\Training\Infrastructure\ReadModel\TrainingRepo as ReadModelTrainingRepo;
 use App\Training\Infrastructure\ReadModel\TrainingView;
+use App\Training\Infrastructure\ReadModel\TrainingViewRepo as ReadModelTrainingRepo;
 use Doctrine\ORM\EntityManagerInterface;
 
-final class TrainingRepo implements ReadModelTrainingRepo
+final class TrainingViewRepo implements ReadModelTrainingRepo
 {
     public function __construct(private EntityManagerInterface $em)
     {

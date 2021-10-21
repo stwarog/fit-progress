@@ -5,22 +5,22 @@ declare(strict_types=1);
 namespace Unit\Training\Infrastructure\ReadModel\MySql;
 
 use App\Training\Domain\TrainingId;
-use App\Training\Infrastructure\ReadModel\MySql\TrainingRepo;
+use App\Training\Infrastructure\ReadModel\MySql\TrainingViewRepo;
 use Doctrine\DBAL\Driver\Result;
 use Doctrine\DBAL\Portability\Connection;
 use Doctrine\ORM\EntityManagerInterface;
 use Unit\TestCase;
 
-/** @covers \App\Training\Infrastructure\ReadModel\MySql\TrainingRepo */
+/** @covers \App\Training\Infrastructure\ReadModel\MySql\TrainingViewRepo */
 final class TrainingRepoTest extends TestCase
 {
     public function testConstructor(): void
     {
-        $sut = new TrainingRepo($this->createMock(EntityManagerInterface::class));
-        $this->assertInstanceOf(\App\Training\Infrastructure\ReadModel\TrainingRepo::class, $sut);
+        $sut = new TrainingViewRepo($this->createMock(EntityManagerInterface::class));
+        $this->assertInstanceOf(\App\Training\Infrastructure\ReadModel\TrainingViewRepo::class, $sut);
     }
 
-    public function testFindAll(): TrainingRepo
+    public function testFindAll(): TrainingViewRepo
     {
         // Given data returned by Entity Manager
         $fetchedData = [
@@ -57,7 +57,7 @@ final class TrainingRepoTest extends TestCase
         $em->method('getConnection')->willReturn($connection);
 
         // And View repository
-        $sut = new TrainingRepo($em);
+        $sut = new TrainingViewRepo($em);
 
         // When
         $result = $sut->findAll();
@@ -83,7 +83,7 @@ final class TrainingRepoTest extends TestCase
     }
 
     /** @depends testFindAll */
-    public function testFindOneExistingViewShouldReturnOneResult(TrainingRepo $sut): void
+    public function testFindOneExistingViewShouldReturnOneResult(TrainingViewRepo $sut): void
     {
         // Given a Training that I want to fetch
         $trainingId = new TrainingId('7782-2661-3884-9811');
@@ -96,7 +96,7 @@ final class TrainingRepoTest extends TestCase
     }
 
     /** @depends testFindAll */
-    public function testFindOneNotExistingViewShouldReturnNull(TrainingRepo $sut): void
+    public function testFindOneNotExistingViewShouldReturnNull(TrainingViewRepo $sut): void
     {
         // Given a Training that I want to fetch
         $trainingId = new TrainingId('not-existing-one');
