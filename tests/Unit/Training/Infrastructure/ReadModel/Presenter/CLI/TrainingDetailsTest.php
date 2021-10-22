@@ -19,6 +19,7 @@ use App\Training\Infrastructure\ReadModel\Training;
 use App\Training\Infrastructure\ReadModel\TrainingRepo;
 use Unit\TestCase;
 
+/** @covers \App\Training\Infrastructure\ReadModel\Presenter\CLI\TrainingDetails */
 final class TrainingDetailsTest extends TestCase
 {
     public function testConstructor(): void

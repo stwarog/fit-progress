@@ -28,7 +28,7 @@ final class ExerciseRepo implements ExerciseReadModelRepo
             from plan_exercises PE
             left join join_plan_exercises jpe on PE.id = jpe.exercise_id
             left join trainings T on jpe.plan_id = T.plan_id
-            where T.id = $id
+            where T.id = '$id'
             order by PE.position;
             ";
 

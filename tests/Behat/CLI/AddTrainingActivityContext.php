@@ -134,8 +134,9 @@ final class AddTrainingActivityContext implements Context
         try {
             $this->command->run($input, $output);
         } catch (RuntimeException $e) {
-            dump($args);
-            dump($e->getMessage() . ' for ' . var_dump($args));
+            if (!empty($this->args)) {
+                dump($e->getMessage() . ' for ' . var_dump($args));
+            }
         }
     }
 
